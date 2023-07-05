@@ -51,30 +51,31 @@
         <li id="dark-mode-toggle">Tryb jasny</li>
       </ul>
     </nav>
-    <header>
-        <h1>Moja Strona</h1>
-    </header>
-    <main>
-        <textarea id="myTextarea">
-            Welcome to TinyMCE!
-        </textarea>
-        <script>
-        tinymce.init({
-          selector: '#myTextarea',
-          plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-          tinycomments_mode: 'embedded',
-          tinycomments_author: 'Author name',
-          mergetags_list: [
-            { value: 'First.Name', title: 'First Name' },
-            { value: 'Email', title: 'Email' },
-          ],
-        });
-      </script>
-        </main>
-        <footer>
-            <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
-        </footer>
-    </div>
+    <form action="action_page.php" method="post">
+        <div class="imgcontainer">
+          <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+      
+        <div class="container">
+          <center><label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required></center>
+            
+          <center><label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required></center>
+      
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+      <footer>
+        <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
+      </footer>
 </body>
 </html>

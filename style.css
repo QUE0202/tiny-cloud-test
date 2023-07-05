@@ -1,3 +1,133 @@
 body {
-    background-color: black;
-}
+    /* Style dla trybu jasnego */
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  body.dark-mode {
+    /* Style dla trybu ciemnego */
+    background-color: #222222;
+    color: #ffffff;
+  }
+  
+  header {
+    
+    padding: 20px;
+    text-align: center;
+    
+  }
+  /* Dodatkowe style dla innych elementów strony */
+  
+  button#dark-mode-toggle {
+    /* Style przycisku do przełączania trybu */
+  }
+  button#dark-mode-toggle {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #222222;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button#dark-mode-toggle:hover {
+    background-color: #222222;
+    color: #ffffff;
+  }
+  nav {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  #dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  nav ul li#dark-mode-toggle {
+    background-color: #222222;
+    color: #ffffff;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  nav ul li#dark-mode-toggle:hover {
+    background-color: #ffffff;
+    color: #222222;
+  }
+  h1 {
+    margin: 0;
+    
+  }
+  main {
+    padding: 20px;
+  }
+  footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  footer p {
+    color: #fff;
+    margin: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  div {
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
