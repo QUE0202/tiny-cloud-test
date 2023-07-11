@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="js.js" defer></script>
+    <script src="axios.min.js" defer></script>
     <title>Wyszukiwarka</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
                 <li id="dark-mode-toggle"><a id="menu" href="./login.html">Zaloguj się</a></li>
                 <li id="dark-mode-toggle"><a id="menu" href="./register.html">Zarejestruj się</a></li>
                 <li></li>
-            </ul>
+              </ul>
         </nav>
         <div class="menu-button" id="menuButton">&#9776;</div>
         <header>
@@ -39,24 +40,18 @@
         </header>
         <main>
             <header class="flex_column_container">
-                <div class="headings">
-                    
+                <div class="gcse-search">
+                    <input type="text" id="searchInput" placeholder="Wyszukaj w Google">
+                    <button id="searchButton">Szukaj</button>
                 </div>
-        
-                <script async src="https://cse.google.com/cse.js?cx=b219397249ab740f3">
-                </script>
-                <div class="gcse-search"></div>
-        
-        
-        
+
+                <div class="headings">
+                    <h2>Ostatnie wyszukiwania:</h2>
+                    <ul id="searchHistory"></ul>
+                </div>
         
                 
             </header>
-            <main id="main">
-                
-                
-        
-                
         </main>
         <footer>
             <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
@@ -70,6 +65,91 @@
             menu.classList.toggle('open');
             menuButton.classList.toggle('open');
         });
+
+        // Funkcja dodająca wyszukiwanie do historii
+        function addToSearchHistory(query) {
+            const searchHistory = document.getElementById('searchHistory');
+            const listItem = document.createElement('li');
+            listItem.textContent = query;
+            searchHistory.appendChild(listItem);
+        }
+
+        // Przechwytywanie zdarzenia wyszukiwania
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+
+            searchInput.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                    event.preventDefault(); // Zapobieganie domyślnej akcji po wciśnięciu Enter (np. przesyłanie formularza)
+                }
+            });
+
+            function performSearch() {
+                const query = searchInput.value;
+                addToSearchHistory(query);
+
+                const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+                window.open(searchUrl, '_blank');
+            }
+        });
+
+        const menuItems = document.querySelectorAll('.menu-item');
+
+menuItems.forEach(item => {
+  item.addEventListener('click', () => {
+    menu.classList.remove('open');
+    menuButton.classList.remove('open');
+  });
+});
+
+
     </script>
+    <!-- Dodanie biblioteki Axios do obsługi żądań HTTP -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  // Funkcja do pobierania podpowiedzi wyszukiwania
+  function getSearchSuggestions(query) {
+    const apiUrl = `https://www.google.com/complete/search?q=${encodeURIComponent(query)}`;
+
+    axios.get(apiUrl)
+      .then(response => {
+        const suggestions = response.data[1];
+        const suggestionsList = document.getElementById('suggestionsList');
+        suggestionsList.innerHTML = '';
+
+        suggestions.forEach(suggestion => {
+          const listItem = document.createElement('li');
+          listItem.textContent = suggestion;
+          suggestionsList.appendChild(listItem);
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  // Dodanie obsługi zdarzenia wpisywania w pole wyszukiwania
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function() {
+    const query = searchInput.value;
+    getSearchSuggestions(query);
+  });
+</script>
+
+<!-- Dodanie listy podpowiedzi wyszukiwania -->
+<div class="search-suggestions">
+  <ul id="suggestionsList"></ul>
+</div>
+
 </body>
 </html>
+
+
+
