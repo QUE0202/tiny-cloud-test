@@ -1,8 +1,10 @@
 body {
     /* Style dla trybu jasnego */
-    background-color: #ffffff;
+    background-color: #555;
     color: #000000;
     text-decoration: none;
+    font-family: Arial, sans-serif;
+    padding: 20px;
   }
   
   body.dark-mode {
@@ -10,12 +12,16 @@ body {
     background-color: #222222;
     color: #ffffff;
     text-decoration: none;
+    font-family: Arial, sans-serif;
+    padding: 20px;
   }
   
   header {
     padding: 20px;
     text-align: center;
     text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
   }
   /* Dodatkowe style dla innych elementów strony */
   
@@ -105,6 +111,7 @@ body {
     text-align: center;
     border-radius: 10px;
     text-decoration: none;
+    margin-top: 20px;
   }
   
   footer p {
@@ -208,6 +215,12 @@ html, body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #333;
+  box-shadow: 2px;
+  padding: 20px;
+  border-radius: 30px;
 }
 
 main {
@@ -339,4 +352,71 @@ img {
   width: 20px;
   height: auto;
   position: -ms-page;
+}
+
+.headings{
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.headings h2 {
+  color: #f2f2f2;
+}
+
+.gcse-search input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+
+.gcse-search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 5px;
+}
+
+.gcse-search button:hover {
+  background-color: #45a049;
+}
+
+.searchHistory li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.search-suggestions {
+  margin-top: 20px;
+}
+
+.search-suggestions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-suggestions li {
+  font-size: 14px;
+  color: #333;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.search-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.search-suggestions li:hover {
+  background-color: #f9f9f9;
+}
+
+.search {
+  background-color: ;
 }
