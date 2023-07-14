@@ -159,6 +159,16 @@ body {
     text-decoration: none;
   }
 
+  input[type="submit"]:hover {
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
   div#dymek {
     position: relative;
     display: inline-block;
@@ -243,7 +253,7 @@ footer {
   left: -200px;
   width: 200px;
   height: 100%;
-  background-color: #f2f2f2;
+  background-color: #222;
   transition: left 0.3s ease;
   overflow: hidden;
   display: flex;
@@ -271,7 +281,7 @@ footer {
 
 .menu a {
   text-decoration: none;
-  color: #555;
+  color: #f2f2f2;
 }
 
 .menu a#menu {
@@ -301,9 +311,18 @@ footer {
   z-index: 3; /* Dodane */
 }
 
+.menu-button:hover {
+  background-color: #45a049;
+  animation: pulse 1s infinite;
+}
+
 .menu-button.open {
   left: 220px;
 }
+
+/* .menu-button.open:hover {
+  right: 220px;
+} */
 
 #dymek {
   position: absolute;
@@ -435,4 +454,30 @@ img {
 
 .container {
   background-color: #333;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.menu li:hover {
+  animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

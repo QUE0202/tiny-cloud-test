@@ -1,0 +1,483 @@
+body {
+    /* Style dla trybu jasnego */
+    background-color: #555;
+    color: #000000;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  body.dark-mode {
+    /* Style dla trybu ciemnego */
+    background-color: #222222;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  header {
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  /* Dodatkowe style dla innych elementów strony */
+  
+  /* button#dark-mode-toggle {
+    /* Style przycisku do przełączania trybu */
+  /* } */ 
+  button#dark-mode-toggle {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #222222;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  button#dark-mode-toggle:hover {
+    background-color: #222222;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  nav {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    
+  }
+  
+  nav ul li {
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  #dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  nav ul li#dark-mode-toggle {
+    background-color: #222222;
+    color: #ffffff;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  nav ul li#dark-mode-toggle:hover {
+    background-color: #ffffff;
+    color: #222222;
+    text-decoration: none;
+  }
+  h1 {
+    font-family: unset;
+    margin: 0;
+    text-decoration: none;
+  }
+  main {
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+  
+  footer p {
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    margin: 0 auto;
+    text-decoration: none;
+  }
+
+  div {
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+  }
+
+  input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  input[type="submit"]:hover {
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  div#dymek {
+    position: relative;
+    display: inline-block;
+    background-color: #555;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: large;
+    text-decoration: none;
+  }
+
+  /* #dymek::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #f2f2f2 transparent;
+}
+
+#dymek::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: #f2f2f2 transparent transparent transparent;
+} */
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#tiny {
+  background-color: #555;
+  border-width: 90cm;
+  text-decoration: none;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #333;
+  box-shadow: 2px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Dodane */
+  z-index: 1; /* Dodane */
+}
+
+footer {
+  background-color: #555;
+  padding: 20px;
+  text-align: center;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  background-color: #222;
+  transition: left 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 2; /* Dodane */
+}
+
+.menu.open {
+  left: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Dodane */
+}
+
+.menu li {
+  padding: 10px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+
+.menu a#menu {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+
+.menu a#menu:hover {
+  color: #555;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: #555;
+}
+
+.menu-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #555;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: left 0.3s ease;
+  z-index: 3; /* Dodane */
+}
+
+.menu-button:hover {
+  background-color: #45a049;
+  animation: pulse 1s infinite;
+}
+
+.menu-button.open {
+  left: 220px;
+}
+
+/* .menu-button.open:hover {
+  right: 220px;
+} */
+
+#dymek {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 4; /* Dodane */
+}
+
+#dymek .contacts {
+  margin-bottom: 20px;
+}
+
+#dymek .contacts:last-child {
+  margin-bottom: 0;
+}
+
+#dymek .contact_box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#dymek .contact_box i {
+  margin-right: 10px;
+}
+
+#dymek .contact_box p {
+  margin: 0;
+}
+
+#dymek .contact_box a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+#dymek .contact_box a:hover {
+  color: #555;
+}
+
+img {
+  width: 20px;
+  height: auto;
+  position: -ms-page;
+}
+
+.headings{
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.headings h2 {
+  text-align: right;
+  color: #f2f2f2;
+}
+
+.gcse-search input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+
+.gcse-search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 5px;
+}
+
+.gcse-search button:hover {
+  background-color: #45a049;
+}
+
+.searchHistory li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.search-suggestions {
+  margin-top: 20px;
+}
+
+.search-suggestions ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-suggestions li {
+  font-size: 14px;
+  color: #333;
+  padding: 5px 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.search-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.search-suggestions li:hover {
+  background-color: #f9f9f9;
+}
+
+.search {
+  color: #fff;
+  background-color: #444;
+  border-radius: 10px;
+}
+
+.searchHistory {
+  text-align: right;
+}
+
+.psw {
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  background-color: #333;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.menu li:hover {
+  animation: bounce 0.5s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

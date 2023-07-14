@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js.js" defer></script>
+    <script src="axios.min.js" defer></script>
+    <title>Search</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="menu" id="menu">
+            <ul>
+                <li></li>
+                <li><a class="a" href="index.html"><img src="./icons/home-page.jpg" alt="">Home</a></li>
+                <li></li>
+                <li><a class="b" href="about.html"><img src="./icons/about-us.png" alt="">About Us</a></li>
+                <li><a class="a" href="contact.html"><img src="./icons/contact.jpg" alt="">Contact</a></li>
+                <li><a class="b" href="./Search.html"><img src="./icons/browser.png" alt="">Browser</a></li>
+                <li><a class="a" href="https://www.revolut.com/pl-PL/"><img src="./icons/revolut.png" alt="">Revolut</a></li>
+                <li><a class="b" href="https://www.youtube.com"><img src="./icons/yt.jpg" alt="">YouTube</a></li>
+                <li><a class="a" href="https://news.google.com"><img src="./icons/news.jpg" alt="">Google News</a></li>
+                <li><a class="b" href="https://assistant.google.com"><img src="./icons/assist.jpg" alt="">Google Assistant</a></li>
+                <li><a class="a" href="https://drive.google.com"><img src="./icons/drive.png" alt="">Google Drive</a></li>
+                <li><a class="b" href="https://www.google.pl/maps"><img src="./icons/maps.png" alt="">Google Maps</a></li>
+                <li><a class="a" href="./chatbot.html"><img src="./icons/cb.png" alt="">ChatBot</a></li>
+                <li></li>
+                <li id="dark-mode-toggle">Light Mode</li>
+                <li></li>
+                <li id="dark-mode-toggle"><a id="menu" href="./login.html">Log In</a></li>
+                <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Register</a></li>
+                <li></li>
+            </ul>
+        </nav>
+        <div class="menu-button" id="menuButton">&#9776;</div>
+        <header>
+            <h1 class="search">Search</h1>
+        </header>
+        <main>
+            <div class="tlo">
+                <header class="flex_column_container">
+                    <div class="gcse-search">
+                        <input type="text" id="searchInput" placeholder="Search">
+                        <button id="searchButton">Search</button>
+                    </div>
+                    <div class="headings">
+                      <h2>Recent searches:</h2>
+                      <ul id="searchHistory"></ul>
+                  </div>
+  
+  
+              </header>
+          </div>
+      </main>
+      <footer>
+          <p>&copy; 2023 My Website. All rights reserved.</p>
+      </footer>
+  </div>
+  <script>
+      const menuButton = document.getElementById('menuButton');
+      const menu = document.getElementById('menu');
+  
+      menuButton.addEventListener('click', () => {
+          menu.classList.toggle('open');
+          menuButton.classList.toggle('open');
+      });
+  
+      // Function to add search to history
+      function addToSearchHistory(query) {
+          const searchHistory = document.getElementById('searchHistory');
+          const listItem = document.createElement('li');
+          listItem.textContent = query;
+          searchHistory.appendChild(listItem);
+      }
+  
+      // Search event handling
+      document.addEventListener('DOMContentLoaded', function() {
+          const searchInput = document.getElementById('searchInput');
+          const searchButton = document.getElementById('searchButton');
+  
+          searchButton.addEventListener('click', function() {
+              performSearch();
+          });
+  
+          searchInput.addEventListener('keydown', function(event) {
+              if (event.key === 'Enter') {
+                  performSearch();
+                  event.preventDefault();
+              }
+          });
+  
+          function performSearch() {
+              const query = searchInput.value;
+              addToSearchHistory(query);
+  
+              const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+              window.open(searchUrl, '_blank');
+          }
+      });
+  
+      const menuItems = document.querySelectorAll('.menu-item');
+  
+      menuItems.forEach(item => {
+          item.addEventListener('click', () => {
+              menu.classList.remove('open');
+              menuButton.classList.remove('open');
+          });
+      });
+  </script>
+  <!-- Adding Axios library for HTTP requests -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <script>
+      // Function to get search suggestions
+      function getSearchSuggestions(query) {
+          const apiUrl = `https://www.google.com/complete/search?q=${encodeURIComponent(query)}`;
+  
+          axios.get(apiUrl)
+              .then(response => {
+                  const suggestions = response.data[1];
+                  const suggestionsList = document.getElementById('suggestionsList');
+                  suggestionsList.innerHTML = '';
+  
+                  suggestions.forEach(suggestion => {
+                      const listItem = document.createElement('li');
+                      listItem.textContent = suggestion;
+                      listItem.addEventListener('click', () => {
+                          searchInput.value = suggestion;
+                          performSearch();
+                      });
+                      suggestionsList.appendChild(listItem);
+                  });
+              })
+              .catch(error => {
+                  console.error(error);
+              });
+      }
+  
+      // Adding event listener for input in the search input field
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', function() {
+          const query = searchInput.value;
+          getSearchSuggestions(query);
+      });
+  
+      // Performing search
+      function performSearch() {
+          const query = searchInput.value;
+          addToSearchHistory(query);
+  
+          const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+          window.open(searchUrl, '_blank');
+      }
+  </script>
+  
+  <!-- Adding search suggestions list -->
+  <div class="search-suggestions">
+      <ul id="suggestionsList"></ul>
+  </div>
+</body>
+</html>

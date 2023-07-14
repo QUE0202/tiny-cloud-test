@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js.js" defer></script>
+    <title>About Us</title>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="menu" id="menu">
+        <ul>
+          <li><a>-------------------------</a></li>
+          <li><a class="a" href="index.html"><img src="./icons/home-page.jpg" alt="">Home</a></li>
+          <li><a>-------------------------</a></li>
+          <li><a class="b" href="about.html"><img src="./icons/about-us.png" alt="">About Us</a></li>
+          <li><a class="a" href="contact.html"><img src="./icons/contact.jpg" alt="">Contact</a></li>
+          <li><a class="b" href="./Search.html"><img src="./icons/browser.png" alt="">Browser</a></li>
+          <li><a class="a" href="https://www.revolut.com/pl-PL/"><img src="./icons/revolut.png" alt="">Revolut</a></li>
+          <li><a class="b" href="https://www.youtube.com"><img src="./icons/yt.jpg" alt="">YouTube</a></li>
+          <li><a class="a" href="https://news.google.com"><img src="./icons/news.jpg" alt="">Google News</a></li>
+          <li><a class="b" href="https://assistant.google.com"><img src="./icons/assist.jpg" alt="">Google Assistant</a></li>
+          <li><a class="a" href="https://drive.google.com"><img src="./icons/drive.png" alt="">Google Drive</a></li>
+          <li><a class="b" href="https://www.google.pl/maps"><img src="./icons/maps.png" alt="">Google Maps</a></li>
+          <li><a class="a" href="./chatbot.html"><img src="./icons/cb.png" alt="">ChatBot</a></li>
+          <li><a>-------------------------</a></li>
+          <li id="dark-mode-toggle">Light Mode</li>
+          <li><a>-------------------------</a></li>
+          <li id="dark-mode-toggle"><a id="menu" href="./login.html">Log In</a></li>
+          <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Register</a></li>
+          <li></li>
+        </ul>
+    </nav>
+    <div class="menu-button" id="menuButton">&#9776;</div>
+        <header>
+            <h1>About Us</h1>
+        </header>
+        <main>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at lacus efficitur, suscipit libero eget, feugiat elit. Nunc gravida tristique aliquam. Vivamus pharetra neque nec risus finibus, sit amet gravida justo dignissim. Morbi fringilla sem ligula, eget malesuada urna malesuada sed. Ut feugiat diam eget sollicitudin facilisis. Integer convallis, ante a dignissim fermentum, odio eros lacinia lectus, vel scelerisque purus elit id elit. Fusce a massa consequat, volutpat purus eget, cursus dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam cursus purus vitae diam vestibulum, sed vestibulum orci efficitur. Vestibulum porttitor elementum justo, non varius nisi hendrerit nec. Vestibulum nec diam lorem. In volutpat sollicitudin metus, eu pulvinar quam semper eget. In vulputate ipsum vel purus scelerisque, in luctus tellus consequat. Nulla facilisi. Mauris scelerisque nunc in lacinia fermentum. Donec sollicitudin dolor et lacinia molestie.
+            </p>
+            <p>
+                Nunc in dapibus nunc, ac fermentum justo. Pellentesque aliquam leo sit amet mauris scelerisque, eget tristique urna tempor. Vivamus suscipit bibendum orci, at dictum lacus. Donec fermentum purus id ipsum auctor, eget rutrum orci malesuada. Quisque eu erat ligula. Duis eu metus a arcu pretium aliquet ac in turpis. Cras vestibulum facilisis ex, non commodo enim viverra id. Aenean non orci interdum, tincidunt massa nec, ultricies ligula. Proin placerat blandit fringilla. Integer blandit justo ac varius tincidunt. Sed vestibulum augue non lectus vulputate semper. Mauris tristique gravida vestibulum. Suspendisse tincidunt, lectus sed vulputate semper, lorem sapien convallis quam, sit amet varius turpis erat a dui. Nullam ac tortor nec lorem ultrices consequat id at tortor.
+            </p>
+            <p>
+                Sed lacinia pretium arcu nec sagittis. Maecenas tincidunt blandit massa nec luctus. Sed ut dolor volutpat, tempor neque sed, ullamcorper libero. Vivamus bibendum felis ac nulla auctor, et ullamcorper lacus malesuada. Pellentesque malesuada, elit vel pulvinar tempus, nulla purus fringilla ipsum, id lacinia lacus ipsum id dolor. Sed ultricies lectus neque, in egestas turpis pulvinar sit amet. Etiam lacinia elementum ligula sed congue. Integer elementum risus nec felis dapibus, sed volutpat metus vestibulum. Nulla ultricies nulla eu rutrum gravida. In eu nisl lacinia, gravida enim vel, volutpat libero. Pellentesque pulvinar, orci ac efficitur hendrerit, ipsum enim lacinia odio, sit amet finibus nisl tellus ut orci. Mauris sed placerat velit. Donec mollis feugiat purus, eu cursus arcu vestibulum vitae.
+            </p>
+        </main>
+        <footer>
+            <p>&copy; 2023 My Website. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+        menuButton.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        menuButton.classList.toggle('open');
+    });
+</script>
+</body>
+</html>
