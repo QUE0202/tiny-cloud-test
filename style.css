@@ -427,3 +427,12 @@ img {
 .searchHistory {
   text-align: right;
 }
+
+.psw {
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  background-color: #333;
+}
