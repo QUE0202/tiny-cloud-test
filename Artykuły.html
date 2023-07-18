@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style1.css">
+    <title>Strona z Artykułami</title>
+</head>
+<body>
+    <header>
+        <h1>Strona z Artykułami</h1>
+    </header>
+    <p></p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            &#x7C;
+            <li><a href="#">Użytkownicy</a></li>
+            &#x7C;
+            <li><a href="Artykuły.html">Artykuły</a></li>
+            &#x7C;
+            <li><a href="dashboard.html">Dashboard</a></li>
+            &#x7C;
+            <li><a href="baza.sql">Baza Danych</a></li>
+            &#x7C;
+            <li><a href="#">Ustawienia</a></li>
+        </ul>
+    </nav>
+    
+    <div class="napisz">
+        <h2>Napisz artykuł</h2>
+        <form id="articleForm">
+            <label for="articleTitle">Tytuł:</label>
+            <input type="text" id="articleTitle" name="articleTitle">
+            <br>
+            <label for="articleContent">Treść:</label>
+            <textarea id="articleContent" name="articleContent" rows="5"></textarea>
+            <br>
+            <input class="add-article-button" type="submit" value="Dodaj artykuł">
+        </form>
+    </div>
+
+    <div class="content">
+        <h2>Artykuły</h2>
+        <ul id="articleList"></ul>
+    </div>
+    <footer>
+        <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        const articleForm = document.getElementById('articleForm');
+        const articleList = document.getElementById('articleList');
+
+        articleForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const titleInput = document.getElementById('articleTitle');
+            const contentInput = document.getElementById('articleContent');
+
+            const title = titleInput.value;
+            const content = contentInput.value;
+
+            if (title.trim() !== '' && content.trim() !== '') {
+                addArticle(title, content);
+                titleInput.value = '';
+                contentInput.value = '';
+            }
+        });
+
+        function addArticle(title, content) {
+            const articleItem = document.createElement('li');
+            const articleTitle = document.createElement('h3');
+            articleTitle.textContent = title;
+
+            const articleContent = document.createElement('article');
+            const articleParagraph = document.createElement('p');
+            articleParagraph.className = 'article';
+            articleParagraph.textContent = content;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-article-button';
+            deleteButton.textContent = 'Usuń';
+
+            deleteButton.addEventListener('click', function() {
+                articleItem.remove();
+            });
+
+            articleContent.appendChild(articleParagraph);
+            articleItem.appendChild(articleTitle);
+            articleItem.appendChild(articleContent);
+            articleItem.appendChild(deleteButton);
+
+            articleList.appendChild(articleItem);
+        }
+    </script>
+</body>
+</html>

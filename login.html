@@ -1,110 +1,70 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="js.js" defer></script>
     <title>Logowanie</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <div class="wrapper">
-    <nav class="menu" id="menu">
-      <ul>
-        <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
-        <hr width="30%" align="center">
-        <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
-        <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
-        <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
-        <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
-        <hr width="30%" align="center">
-        <li id="dark-mode-toggle">Tryb jasny</li>
-        <hr width="30%" align="center">
-        <li id="dark-mode-toggle"><a id="menu" href="./login.html">Zaloguj się</a></li>
-        <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Zarejestruj się</a></li>
-        <hr width="30%" align="center">
-    </ul>
-    </nav>
-    <div class="menu-button" id="menuButton">&#9776;</div>
-        <header>
-            <h1>Logowanie</h1>
-        </header>
-        <main>
-          <form action="action_page.php" method="post">
-            <div class="imgcontainer">
-              <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
-            </div>
-          
-            <div class="container">
-              <center><label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required></center>
-                
-              <center><label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required></center>
-          
-              <center>
-                <center><a href="./password-remember.html"><input type="submit" value="Zaloguj"></a></center>
-                  
-                <label>
-                  <input type="checkbox" checked="checked" name="remember" value="Remember Me"> Remember me
-                </label>
-            </center>
-            </div>
-          
-            <div class="container">
-              <center><a href="./password-remember.html"><input type="submit" value="Forgot Password"></a></center>
-            </div>
-          </form>
-        </main>
-        <footer>
-            <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
-        </footer>
-    </div>
+    <h1>Logowanie</h1>
+    
+    <form id="loginForm">
+        <label for="username">Login:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">Zaloguj</button>
+        <p id="loginMessage"></p>
+    </form>
+
     <script>
+        // Dane kont administratora
+        const adminCredentials = {
+            username: 'admin',
+            password: 'admin123'
+        };
 
-const menuButton = document.getElementById('menuButton');
-        const menu = document.getElementById('menu');
+        // Sprawdzanie uwierzytelnienia
+        function authenticate(username, password) {
+            return username === adminCredentials.username && password === adminCredentials.password;
+        }
 
-        menuButton.addEventListener('click', () => {
-            menu.classList.toggle('open');
-            menuButton.classList.toggle('open');
-        });
+        // Funkcja obsługująca logowanie
+        function login() {
+            const form = document.getElementById('loginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginMessage = document.getElementById('loginMessage');
 
-        // Pobierz referencje do formularza logowania
-const loginForm = document.querySelector('#login-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-// Nasłuchuj zdarzenia wysłania formularza
-loginForm.addEventListener('submit', (e) => {
-  e.preventDefault(); // Zapobiegnij domyślnej akcji formularza (przeładowanie strony)
+                const username = usernameInput.value;
+                const password = passwordInput.value;
 
-  // Pobierz wartości wpisane przez użytkownika
-  const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;
+                if (authenticate(username, password)) {
+                    // Logowanie pomyślne
+                    loginMessage.textContent = 'Zalogowano jako administrator!';
+                    // Przekierowanie do dashboardu
+                    setTimeout(function() {
+                        window.location.href = 'dashboard.html';
+                    }, 2000); // Przekierowanie po 2 sekundach
+                } else {
+                    // Logowanie nieudane
+                    loginMessage.textContent = 'Nieprawidłowe dane logowania. Spróbuj ponownie.';
+                }
 
-  // Prześlij żądanie logowania do serwera
-  const loginData = {
-    username: username,
-    password: password
-  };
+                // Czyszczenie pól formularza
+                usernameInput.value = '';
+                passwordInput.value = '';
+            });
+        }
 
-  // Przykład użycia żądania AJAX za pomocą biblioteki jQuery
-  $.ajax({
-    url: '/login', // Adres URL do obsługi logowania na serwerze
-    type: 'POST',
-    data: loginData,
-    success: function(response) {
-      // Reakcja na pomyślne zalogowanie
-      console.log('Zalogowano!', response);
-      // Możesz przekierować użytkownika na inną stronę tutaj
-    },
-    error: function(error) {
-      // Reakcja na błąd logowania
-      console.error('Błąd logowania', error);
-      // Wyświetl komunikat o błędzie lub podobne działania
-    }
-  });
-});
+        // Inicjalizacja logowania
+        login();
     </script>
 </body>
 </html>
