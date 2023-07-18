@@ -12,26 +12,19 @@
     <div class="wrapper">
         <nav class="menu" id="menu">
             <ul>
-                <li></li>
-                <li><a class="a" href="index.html"><img src="./icons/home-page.jpg" alt="">Strona główna</a></li>
-                <li></li>
-                <li><a class="b" href="onas.html"><img src="./icons/about-us.png" alt="">O nas</a></li>
-                <li><a class="a" href="kontakt.html"><img src="./icons/contact.jpg" alt="">Kontakt</a></li>
-                <li><a class="b" href="./Search.html"><img src="./icons/browser.png" alt="">Przeglądarka</a></li>
-                <li><a class="a" href="https://www.revolut.com/pl-PL/"><img src="./icons/revolut.png" alt="">Revolut</a></li>
-                <li><a class="b" href="https://www.youtube.com"><img src="./icons/yt.jpg" alt="">YouTube</a></li>
-                <li><a class="a" href="https://news.google.com"><img src="./icons/news.jpg" alt="">Wiadomości Google</a></li>
-                <li><a class="b" href="https://assistant.google.com"><img src="./icons/assist.jpg" alt="">Asystent Google</a></li>
-                <li><a class="a" href="https://drive.google.com"><img src="./icons/drive.png" alt="">Dysk Google</a></li>
-                <li><a class="b" href="https://www.google.pl/maps"><img src="./icons/maps.png" alt="">Mapy Google</a></li>
-                <li><a class="a" href="./chatbot.html"><img src="./icons/cb.png" alt="">ChatBot</a></li>
-                <li></li>
+                <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
+                <hr width="30%" align="center">
+                <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
+                <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
+                <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
+                <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
+                <hr width="30%" align="center">
                 <li id="dark-mode-toggle">Tryb jasny</li>
-                <li></li>
+                <hr width="30%" align="center">
                 <li id="dark-mode-toggle"><a id="menu" href="./login.html">Zaloguj się</a></li>
                 <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Zarejestruj się</a></li>
-                <li></li>
-              </ul>
+                <hr width="30%" align="center">
+            </ul>
         </nav>
         <div class="menu-button" id="menuButton">&#9776;</div>
         <header>
@@ -39,8 +32,8 @@
         </header>
         <main>
             <div id="tos">
-                <h1>
-                    What’s covered in these terms
+                <h1 class="h1black">
+                    What’s covered in these terms:
                 </h1>
                 <p>We know it’s tempting to skip these Terms of Service, but it’s important to establish what you can expect from us as you use Google services, and what we expect from you.</p>
                 <p>These Terms of Service reflect the way Google’s business works, the laws that apply to our company, and certain things we’ve always believed to be true. As a result, these Terms of Service help define Google’s relationship with you as you interact with our services. For example, these terms include the following topic headings:</p>
@@ -51,10 +44,10 @@
                 <p>Understanding these terms is important because, to use our services, you must accept these terms.</p>
                 <p>Besides these terms, we also publish a Privacy Policy. Although it’s not part of these terms, we encourage you to read it to better understand how you can update, manage, export, and delete your information.</p>
             
-                <h1>
-                    Terms
+                <h1 class="h1black">
+                    Terms:
                 </h1>
-                <h2>
+                <h2 class="h1black">
                     Service provider
                 </h2>
                 <p>In the European Economic Area (EEA) and Switzerland, Google services are provided by, and you’re contracting with:</p>
@@ -65,15 +58,16 @@
                 <p>Dublin 4</p>
                 <p>Ireland</p>
             
-                <h2>
+                <h2 class="h1black">
                     Age requirements
                 </h2>
                 <p>If you’re under the age required to manage your own Google Account, you must have your parent or legal guardian’s permission to use a Google Account. Please have your parent or legal guardian read these terms with you.</p>
                 <p>If you’re a parent or legal guardian, and you allow your child to use the services, then these terms apply to you and you’re responsible for your child’s activity on the services.</p>
                 <p>Some Google services have additional age requirements as described in their service-specific additional terms and policies.</p>
-                <input type="checkbox" id="toscb" name="tosaccept" value="Read">
-                <label for="toscb">Accept ToS</label><br>
-                <a href="./register.html"><input type="submit" value="Przejdź do rejestracji"></a>
+                <div class="h1black">
+                    <center><h3>Klikając przycisk "przejdź do rejestracji" automatycznie akceptujesz ToS.</h3><br>
+                    <a href="./register.html"><input type="submit" value="Przejdź do rejestracji"></a></center>
+                </div>
             </div>
         </main>
         <footer>

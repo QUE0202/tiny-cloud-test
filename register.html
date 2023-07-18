@@ -6,74 +6,64 @@
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="js.js" defer></script>
-    <title>Register</title>
+    <title>Rejestracja</title>
 </head>
 <body>
   <div class="wrapper">
     <nav class="menu" id="menu">
       <ul>
-        <li></li>
-        <li><a class="a" href="index.html"><img src="./icons/home-page.jpg" alt="">Strona główna</a></li>
-        <li></li>
-        <li><a class="b" href="onas.html"><img src="./icons/about-us.png" alt="">O nas</a></li>
-        <li><a class="a" href="kontakt.html"><img src="./icons/contact.jpg" alt="">Kontakt</a></li>
-        <li><a class="b" href="./Search.html"><img src="./icons/browser.png" alt="">Przeglądarka</a></li>
-        <li><a class="a" href="https://www.revolut.com/pl-PL/"><img src="./icons/revolut.png" alt="">Revolut</a></li>
-        <li><a class="b" href="https://www.youtube.com"><img src="./icons/yt.jpg" alt="">YouTube</a></li>
-        <li><a class="a" href="https://news.google.com"><img src="./icons/news.jpg" alt="">Wiadomości Google</a></li>
-        <li><a class="b" href="https://assistant.google.com"><img src="./icons/assist.jpg" alt="">Asystent Google</a></li>
-        <li><a class="a" href="https://drive.google.com"><img src="./icons/drive.png" alt="">Dysk Google</a></li>
-        <li><a class="b" href="https://www.google.pl/maps"><img src="./icons/maps.png" alt="">Mapy Google</a></li>
-        <li><a class="a" href="./chatbot.html"><img src="./icons/cb.png" alt="">ChatBot</a></li>
-        <li></li>
+        <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
+        <hr width="30%" align="center">
+        <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
+        <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
+        <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
+        <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
+        <hr width="30%" align="center">
         <li id="dark-mode-toggle">Tryb jasny</li>
-        <li></li>
+        <hr width="30%" align="center">
         <li id="dark-mode-toggle"><a id="menu" href="./login.html">Zaloguj się</a></li>
         <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Zarejestruj się</a></li>
-        <li></li>
-      </ul>
+        <hr width="30%" align="center">
+    </ul>
     </nav>
     <div class="menu-button" id="menuButton">&#9776;</div>
         <header>
-          <h1>Register</h1>
+          <h1>Rejestracja</h1>
         </header>
         <main>
           <form action="action_page.php">
             <div class="container">
-              <p>Please fill in this form to create an account.</p>
+              <center><p>Proszę wypełnić ten formularz, aby utworzyć konto.</p></center>
               <hr>
-          
               <center><label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="email" id="email" required></center>
-          
-              <center><label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" id="psw" required></center>
-          
-              <center><label for="psw-repeat"><b>Repeat Password</b></label>
-              <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required></center>
-              <hr>
-          
-              <p>By creating an account you agree to our <a href="./tos.html">Terms & Privacy</a>.</p>
-              <button type="submit" class="registerbtn">Register</button>
-            </div>
-          
-            <div class="container signin">
-              <p>Already have an account? <a href="./login.html">Sign in</a>.</p>
-            </div>
-          </form>
-        </main>
-        <footer>
-            <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
-        </footer>
-    </div>
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const menu = document.getElementById('menu');
-
-        menuButton.addEventListener('click', () => {
-            menu.classList.toggle('open');
-            menuButton.classList.toggle('open'); // Dodane
-        });
-    </script>
-</body>
-</html>
+                <input type="text" placeholder="Wpisz adres email" name="email" id="email" required></center>
+            
+                <center><label for="psw"><b>Hasło</b></label>
+                <input type="password" placeholder="Wpisz hasło" name="psw" id="psw" required></center>
+            
+                <center><label for="psw-repeat"><b>Powtórz hasło</b></label>
+                <input type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required></center>
+                <hr>
+                <center><div class="tostxt">
+                  <a href="./tos.html">Tworząc konto, akceptujesz nasze Warunki korzystania i Politykę prywatności.</a>
+                </div></center>
+                  <center><a href="./password-remember.html"><input type="submit" class="registerbtn" value="Zarejestruj"></a></center>
+                  <center><a href="./login.html"><input type="submit" value="Zaloguj Się"></a></center>
+              </div>
+            </form>
+          </main>
+          <footer>
+              <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
+          </footer>
+      </div>
+      <script>
+          const menuButton = document.getElementById('menuButton');
+          const menu = document.getElementById('menu');
+      
+          menuButton.addEventListener('click', () => {
+              menu.classList.toggle('open');
+              menuButton.classList.toggle('open'); // Dodane
+          });
+      </script>
+      </body>
+      </html>

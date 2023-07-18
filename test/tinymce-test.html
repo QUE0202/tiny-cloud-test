@@ -38,7 +38,22 @@
             <h1>Moja Strona</h1>
         </header>
         <main>
-            
+            <textarea>
+                Welcome to TinyMCE!
+             </textarea>
+             <script>
+               tinymce.init({
+                 selector: 'textarea',
+                 plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+                 toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography |align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                 tinycomments_mode: 'embedded',
+                 tinycomments_author: 'Author name',
+                 mergetags_list: [
+                   { value: 'First.Name', title: 'First Name' },
+                   { value: 'Email', title: 'Email' },
+                 ]
+               });
+             </script>
         </main>
         <footer>
             <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
@@ -55,19 +70,3 @@
     </script>
 </body>
 </html>
-
-
-<ul>
-    <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
-    <hr width="30%" align="center">
-    <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
-    <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
-    <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
-    <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
-    <hr width="30%" align="center">
-    <li id="dark-mode-toggle">Tryb jasny</li>
-    <hr width="30%" align="center">
-    <li id="dark-mode-toggle"><a id="menu" href="./login.html">Zaloguj się</a></li>
-    <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Zarejestruj się</a></li>
-    <hr width="30%" align="center">
-</ul>
