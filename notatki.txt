@@ -55,3 +55,36 @@ Po uruchomieniu serwera możesz otworzyć przeglądarkę i przejść do http://l
 Pamiętaj, że powyższy kod to podstawowy przykład i można go dostosować do własnych potrzeb, takich jak dodawanie innych endpointów, konfiguracja dodatkowych plików statycznych itp.
 
 
+
+
+
+
+
+header {
+    color: #ffffff;
+    background-color: #888484;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  main {
+    color: #ffffff;
+    background-color: #888484;
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  .wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #888484;
+  box-shadow: 2px;
+  padding: 20px;
+  border-radius: 30px;
+}

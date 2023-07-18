@@ -7,20 +7,56 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="wrapper">
+    <nav class="menu" id="menu">
+        <ul>
+            <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
+            <hr width="30%" align="center">
+            <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
+            <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
+            <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
+            <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
+            <hr width="30%" align="center">
+            <li id="dark-mode-toggle">Tryb jasny</li>
+            <hr width="30%" align="center">
+            <li><a id="menu-link" href="./login.html">Zaloguj się</a></li>
+            <li><a id="menu-link" href="./tos.html">Zarejestruj się</a></li>
+            <hr width="30%" align="center">
+        </ul>
+    </nav>
+    <div class="menu-button" id="menuButton">&#9776;</div>
+  <header>
     <h1>Logowanie</h1>
-    
-    <form id="loginForm">
-        <label for="username">Login:</label>
-        <input type="text" id="username" required>
-        <br>
-        <label for="password">Hasło:</label>
-        <input type="password" id="password" required>
-        <br>
-        <button type="submit">Zaloguj</button>
-        <p id="loginMessage"></p>
-    </form>
-
+  </header>
+  <main>
+      <form id="loginForm">
+          <label for="username">Login:</label>
+          <input type="text" id="username" required>
+          <br>
+          <label for="password">Hasło:</label>
+          <input type="password" id="password" required>
+          <br>
+          <button type="submit">Zaloguj</button>
+          <p id="loginMessage"></p>
+      </form>
+    </main>
     <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            menuButton.classList.toggle('open');
+        });
+
+        // Obsługa trybu jasnego i ciemnego
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const currentMode = document.body.classList.contains('dark-mode') ? 'Ciemny' : 'Jasny';
+            darkModeToggle.textContent = `Tryb ${currentMode}`;
+        });
+
         // Dane kont administratora
         const adminCredentials = {
             username: 'admin',
