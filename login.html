@@ -4,104 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logowanie</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
+    <style>
+        h1 {
+            font-family: unset;
+            margin: 0;
+            text-decoration: none;
+            text-align: center;
+            flex: 1;
+            background-color: #222;
+            border-radius: 10px;
+            color: #ccc;
+            border: 1px solid black;
+            width: 30%;
+            margin-left: 600px;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrapper">
+<div class="wrapper">
     <nav class="menu" id="menu">
         <ul>
-            <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
-            <hr width="30%" align="center">
-            <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
-            <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
-            <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
-            <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
-            <hr width="30%" align="center">
+            <li><a class="sg" href="index.html">Strona Główna</a></li>
+            <li><a href="todo.html">To-Do</a></li>
+            <li><a href="onas.html">O Nas</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="Search.html">Przeglądarka</a></li>
             <li id="dark-mode-toggle">Tryb jasny</li>
-            <hr width="30%" align="center">
-            <li><a id="menu-link" href="./login.html">Zaloguj się</a></li>
-            <li><a id="menu-link" href="./tos.html">Zarejestruj się</a></li>
-            <hr width="30%" align="center">
+            <li><a href="login.html">Zaloguj Się</a></li>
+            <li><a href="tos.html">Zarejestruj Się</a></li>
         </ul>
     </nav>
-    <div class="menu-button" id="menuButton">&#9776;</div>
+    <div class="menu-button" id="menuButton"></div>
     <p></p>
-  <header>
+<header>
     <h1>Logowanie</h1>
-  </header>
-  <main>
-      <form id="loginForm">
-          <label for="username">Login:</label>
-          <input type="text" id="username" required>
-          <br>
-          <label for="password">Hasło:</label>
-          <input type="password" id="password" required>
-          <br>
-          <button type="submit">Zaloguj</button>
-          <p id="loginMessage"></p>
-      </form>
-    </main>
-    <script>
-        const menuButton = document.getElementById('menuButton');
-        const menu = document.getElementById('menu');
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
+</header>
+<main>
+    <form id="loginForm">
+        <label for="username">Login:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">Zaloguj</button>
+        <p id="loginMessage"></p>
+    </form>
+</main>
+<footer>
+    <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
+</footer>
+<script>
+    const menuButton = document.getElementById('menuButton');
+    const menu = document.getElementById('menu');
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-        menuButton.addEventListener('click', () => {
-            menu.classList.toggle('open');
-            menuButton.classList.toggle('open');
-        });
+    menuButton.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        menuButton.classList.toggle('open');
+    });
 
-        // Obsługa trybu jasnego i ciemnego
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const currentMode = document.body.classList.contains('dark-mode') ? 'Ciemny' : 'Jasny';
-            darkModeToggle.textContent = `Tryb ${currentMode}`;
-        });
+    // Obsługa trybu jasnego i ciemnego
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const currentMode = document.body.classList.contains('dark-mode') ? 'Ciemny' : 'Jasny';
+        darkModeToggle.textContent = `Tryb ${currentMode}`;
+    });
 
-        // Dane kont administratora
-        const adminCredentials = {
-            username: 'admin',
-            password: 'admin123'
-        };
+    // Dane kont administratora i użytkownika
+    const adminCredentials = [
+        {
+            username: 'j.troka_adm',
+            password: 'Agusia12!'
+        }
+    ];
 
-        // Sprawdzanie uwierzytelnienia
-        function authenticate(username, password) {
-            return username === adminCredentials.username && password === adminCredentials.password;
+    const userCredentials = [
+        {
+            username: 'Bartek',
+            password: 'User12!'
+        }
+    ];
+
+    // Sprawdzanie uwierzytelnienia
+    function authenticate(username, password) {
+        for (const admin of adminCredentials) {
+            if (admin.username === username && admin.password === password) {
+                return true;
+            }
         }
 
-        // Funkcja obsługująca logowanie
-        function login() {
-            const form = document.getElementById('loginForm');
-            const usernameInput = document.getElementById('username');
-            const passwordInput = document.getElementById('password');
-            const loginMessage = document.getElementById('loginMessage');
+        for (const user of userCredentials) {
+            if (user.username === username && user.password === password) {
+                return true;
+            }
+        }
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+        return false;
+    }
 
-                const username = usernameInput.value;
-                const password = passwordInput.value;
+    // Funkcja obsługująca logowanie
+    function login() {
+        const form = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginMessage = document.getElementById('loginMessage');
 
-                if (authenticate(username, password)) {
-                    // Logowanie pomyślne
-                    loginMessage.textContent = 'Zalogowano jako administrator!';
-                    // Przekierowanie do dashboardu
-                    setTimeout(function() {
-                        window.location.href = 'dashboard.html';
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if (authenticate(username, password)) {
+                // Logowanie pomyślne
+                loginMessage.textContent = 'Zalogowano jako ' + (isAdmin(username) ? 'administrator!' : 'użytkownik!');
+                // Przekierowanie do dashboardu dla administratora
+                if (isAdmin(username)) {
+                    setTimeout(function () {
+                        window.location.href = './dashboard.html';
                     }, 2000); // Przekierowanie po 2 sekundach
-                } else {
-                    // Logowanie nieudane
-                    loginMessage.textContent = 'Nieprawidłowe dane logowania. Spróbuj ponownie.';
                 }
+            } else {
+                // Logowanie nieudane
+                loginMessage.textContent = 'Nieprawidłowe dane logowania. Spróbuj ponownie.';
+            }
 
-                // Czyszczenie pól formularza
-                usernameInput.value = '';
-                passwordInput.value = '';
-            });
+            // Czyszczenie pól formularza
+            usernameInput.value = '';
+            passwordInput.value = '';
+        });
+    }
+
+    // Sprawdza, czy użytkownik jest administratorem
+    function isAdmin(username) {
+        for (const admin of adminCredentials) {
+            if (admin.username === username) {
+                return true;
+            }
         }
+        return false;
+    }
 
-        // Inicjalizacja logowania
-        login();
-    </script>
+    // Inicjalizacja logowania
+    login();
+</script>
 </body>
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js.js" defer></script>
+    <script src="axios.min.js" defer></script>
+    <title>Wyszukiwarka</title>
+    <style>
+      h1 {
+    font-family: unset;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    background-color: #222;
+    border-radius: 10px;
+    color: #ccc;
+    border: 1px solid black;
+    width: 30%;
+    margin-left: 625px;
+  }
+    </style>
+</head>
+<body>
+  <div class="wrapper">
+      <nav class="menu" id="menu">
+        <ul>
+          <li><a class="sg" href="index.html">Strona Główna</a></li>
+          <li><a href="todo.html">To-Do</a></li>
+          <li><a href="onas.html">O Nas</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="Search.html">Przeglądarka</a></li>
+          <li id="dark-mode-toggle">Tryb jasny</li>
+          <li><a href="login.html">Zaloguj Się</a></li>
+          <li><a href="tos.html">Zarejestruj Się</a></li>
+      </ul>
+      </nav>
+      <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
+      <p></p>
+      <header>
+          <h1 class="mp">Wyszukiwarka</h1>
+      </header>
+      <main>
+        <div class="tlo">
+          <header class="flex_column_container">
+              <div class="gcse-search">
+                  <input type="text" id="searchInput" placeholder="Szukaj">
+                  <button id="searchButton">Szukaj</button>
+              </div>
+
+              <div class="headings">
+                  <h2 class="mp">Ostatnie wyszukiwania:</h2>
+                  <ul id="searchHistory"></ul>
+              </div>
+      
+              
+          </header>
+        </div>
+      </main>
+      <footer>
+        <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+  </div>
+  <script>
+      const menuButton = document.getElementById('menuButton');
+      const menu = document.getElementById('menu');
+
+      menuButton.addEventListener('click', () => {
+          menu.classList.toggle('open');
+          menuButton.classList.toggle('open');
+      });
+
+     // Funkcja wyszukiwania
+     function search() {
+            const searchQuery = document.getElementById('searchQuery').value;
+            const apiKey = 'AIzaSyAEguoOG7ud8-sRlvkh1BVtqvWoP7H_HiQ'; // Zastąp 'TWOJ_KLUCZ_API' swoim rzeczywistym kluczem API Google Search API
+
+            // Tworzymy URL do API Google Search
+            const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=YOUR_CX&q=${encodeURIComponent(searchQuery)}`;
+
+            // Wykonujemy żądanie GET do API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Przetwarzamy wyniki wyszukiwania
+                    const searchResults = data.items;
+                    const resultsDiv = document.getElementById('searchResults');
+                    resultsDiv.innerHTML = '';
+
+                    searchResults.forEach(result => {
+                        const link = document.createElement('a');
+                        link.href = result.link;
+                        link.textContent = result.title;
+                        link.target = '_blank';
+
+                        const snippet = document.createElement('p');
+                        snippet.textContent = result.snippet;
+
+                        resultsDiv.appendChild(link);
+                        resultsDiv.appendChild(snippet);
+                        resultsDiv.appendChild(document.createElement('hr'));
+                    });
+                })
+                .catch(error => {
+                    console.error('Wystąpił błąd:', error);
+                });
+        }
+</script>
+
+<!-- Dodanie listy podpowiedzi wyszukiwania -->
+<div class="search-suggestions">
+<ul id="suggestionsList"></ul>
+</div>
+
+</body>
+</html>

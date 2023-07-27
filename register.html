@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
     <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="js.js" defer></script>
     <title>Rejestracja</title>
+    <style>
+      h1 {
+    font-family: unset;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    background-color: #222;
+    border-radius: 10px;
+    color: #ccc;
+    border: 1px solid black;
+    width: 30%;
+    margin-left: 625px;
+  }
+    </style>
 </head>
 <body>
   <div class="wrapper">
     <nav class="menu" id="menu">
       <ul>
-        <a href="index.html"><input class="a" type="submit" value="Strona Główna"></a>
-        <hr width="30%" align="center">
-        <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
-        <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
-        <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
-        <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
-        <hr width="30%" align="center">
+        <li><a class="sg" href="index.html">Strona Główna</a></li>
+        <li><a href="todo.html">To-Do</a></li>
+        <li><a href="onas.html">O Nas</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="Search.html">Przeglądarka</a></li>
         <li id="dark-mode-toggle">Tryb jasny</li>
-        <hr width="30%" align="center">
-        <li id="dark-mode-toggle"><a id="menu" href="./login.html">Zaloguj się</a></li>
-        <li id="dark-mode-toggle"><a id="menu" href="./tos.html">Zarejestruj się</a></li>
-        <hr width="30%" align="center">
+        <li><a href="login.html">Zaloguj Się</a></li>
+        <li><a href="tos.html">Zarejestruj Się</a></li>
     </ul>
     </nav>
-    <div class="menu-button" id="menuButton">&#9776;</div>
+    <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
     <p></p>
         <header>
           <h1>Rejestracja</h1>
@@ -54,8 +65,8 @@
             </form>
           </main>
           <footer>
-              <p>&copy; 2023 Moja Strona. Wszelkie prawa zastrzeżone.</p>
-          </footer>
+            <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
+        </footer>
       </div>
       <script>
           const menuButton = document.getElementById('menuButton');

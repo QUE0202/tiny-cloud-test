@@ -1,52 +1,541 @@
-body {
-    font-family: Arial, sans-serif;
+html {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
+
+
 
 header {
-    background-color: #333;
-    color: #fff;
     padding: 20px;
     text-align: center;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-nav {
-    background-color: #f2f2f2;
+main {
+    padding: 20px;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #333;
     padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-ul {
-    list-style-type: none;
+footer a {
+  color: #b9dfaf69;
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 20px;
+  text-decoration: none;
+}
+  
+footer p {
+    
+    color: #fff;
     margin: 0;
-    padding: 0;
+    text-decoration: none;
 }
 
-li {
+/* Dodatkowe style dla innych elementów strony */
+
+button#dark-mode-toggle {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #222222;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  button#dark-mode-toggle:hover {
+    background-color: #222222;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  nav {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  nav ul li {
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  #dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  nav ul li#dark-mode-toggle {
+    background-color: #222222;
+    color: #ffffff;
+    border: 2px solid #222222;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  nav ul li#dark-mode-toggle:hover {
+    background-color: #ffffff;
+    color: #222222;
+    text-decoration: none;
+  }
+  
+  
+
+  body {
+    /* Style dla trybu jasnego */
+    background-color: #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  body.dark-mode {
+    /* Style dla trybu ciemnego */
+    background-color: #222222;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    margin: 0 auto;
+    text-decoration: none;
+  }
+  
+  div {
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 120px;
+  }
+  
+  input[type="submit"]:hover {
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  div#dymek {
+    position: relative;
     display: inline-block;
+    background-color: #555;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: large;
+    text-decoration: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #tiny {
+    background-color: #555;
+    border-width: 90cm;
+    text-decoration: none;
+  }
+
+  #dymek {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 4;
+  }
+  
+  #dymek .contacts {
+    margin-bottom: 20px;
+  }
+  
+  #dymek .contacts:last-child {
+    margin-bottom: 0;
+  }
+  
+  #dymek .contact_box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #dymek .contact_box i {
+    margin-right: 10px;
+  }
+  
+  #dymek .contact_box p {
+    margin: 0;
+  }
+  
+  #dymek .contact_box a {
+    color: #f2f2f2;
+    text-decoration: none;
+  }
+  
+  #dymek .contact_box a:hover {
+    color: #555;
+  }
+  
+  img {
+    width: 20px;
+    height: auto;
+    position: -ms-page;
+  }
+  
+  .headings {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .headings h2 {
+    text-align: center;
+    color: #f2f2f2;
+  }
+  
+  .gcse-search input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+  }
+  
+  .gcse-search button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 5px;
+  }
+  
+  .gcse-search button:hover {
+    background-color: #45a049;
+  }
+  
+  .searchHistory li {
+    list-style: none;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  .search-suggestions {
+    margin-top: 20px;
+  }
+  
+  .search-suggestions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .search-suggestions li {
+    font-size: 14px;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .search-suggestions li:last-child {
+    border-bottom: none;
+  }
+  
+  .search-suggestions li:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .search {
+    color: #fff;
+    background-color: #444;
+    border-radius: 10px;
+  }
+  
+  .searchHistory {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .psw {
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .container {
+    background-color: #333;
+  }
+  
+  .tostxt {
+    background-color: #222;
+  }
+  
+  .h1green {
+    color: #f2f2f2;
+    background-color: #4CAF50;
+    border-radius: 10px;
+  }
+  
+  .h1black {
+    color: #f2f2f2;
+    background-color: #222;
+    border-radius: 10px;
+  }
+  
+  #save-button,
+  #clear-button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  #save-button {
+    margin-right: 10px;
+  }
+  
+  .saved {
+    background-color: #333;
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 20%;
+    height: 0,5%;
+    margin-left: 710px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .task-text {
+    flex: 1;
+  }
+  
+  .delete-button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-task-form {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .add-task-input {
+    flex: 1;
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+  }
+  
+  .add-task-button {
+    margin-left: 120px;
+  }
+  
+  .git {
+    color: #b9dfaf69;
+  }
+  
+  .sponsorzy {
+    text-align: center;
+    background-color: #555;
+    border-radius: 15px;
+  }
+  
+  .dvrs {
+    height: 80px;
+    width: 120px;
+    float: left;
+  }
+  
+  .dakar {
+    height: 80px;
+    width: 80px;
+    float: center;
+  }
+  
+  /* .mp {
+    flex: 1;
+    background-color: #222;
+    border-radius: 10px;
+    color: #ccc;
+    border: 1px solid black;
+    margin-left: 650px;
+    width: 30%;
+  } */
+
+  body {
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  .menu {
+    top: 0;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: top 0.3s ease-in-out;
+    position: fixed;
+    z-index: 2;
+    display: flex; /* Ustawiamy display na flex, aby elementy menu były wyśrodkowane */
+    justify-content: center; /* Wyśrodkowujemy elementy menu poziomo */
+    align-items: center; /* Wyśrodkowujemy elementy menu pionowo */
+    flex-direction: row; /* Ustawiamy elementy obok siebie (poziomo) */
+  }
+  
+  .menu.open {
+    top: 0;
+  }
+  
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    margin-top: 50px; /* Dodajemy margin-top, aby zrobić miejsce dla menu na górze strony */
+  }
+
+  #menu ul {
+    border: #222;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox to align items */
+}
+
+#menu li {
     margin-right: 10px;
 }
 
-li a {
+#menu a {
+    display: block;
+    padding: 8px;
     text-decoration: none;
-    color: #333;
-    padding: 5px;
+    color: #ccc;
 }
 
-.content {
-    margin: 20px;
+#menu li:first-child {
+    margin-right: auto; /* Pushes the first element (Strona Główna) to the left */
 }
 
-article {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc;
+.wyszukaj {
+  text-align: center;
+  width: 100%; /* Rozciągamy pasek wyszukiwania na pełną szerokość */
+  padding: 10px; /* Dodajmy trochę wypełnienia wewnątrz pola */
+  font-size: 16px; /* Rozmiar czcionki */
+  border: 1px solid #ccc; /* Grubość i kolor obramowania */
+  border-radius: 5px; /* Zaokrąglenie narożników */
+  background-color: #222; /* Kolor tła */
+  color: #ccc; /* Kolor tekstu */
 }
 
-h2 {
-    color: #333;
-}
-
-p {
-    margin-top: 0;
+.google {
+  border-radius: 5px;
 }

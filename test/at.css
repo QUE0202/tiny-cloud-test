@@ -181,3 +181,29 @@ body {
 
 
 
+
+
+
+body {
+    height: 100%;
+    margin: 0;
+    padding-top: 50px;
+    overflow: hidden;
+}
+
+
+
+<ul>
+                <a href="index.html"><input class="sg" type="submit" value="Strona Główna"></a>
+                <!-- <hr width="30%" align="center"> -->
+                <a href="todo.html"><input class="a" type="submit" value="To-Do"></a>
+                <a href="onas.html"><input class="a" type="submit" value="O Nas"></a>
+                <a href="kontakt.html"><input class="a" type="submit" value="Kontakt"></a>
+                <a href="Search.html"><input class="a" type="submit" value="Przeglądarka"></a>
+                <!-- <hr width="30%" align="center"> -->
+                <li id="dark-mode-toggle">Tryb jasny</li>
+                <!-- <hr width="30%" align="center"> -->
+                <a href="login.html"><input class="a" type="submit" value="Zaloguj Się"></a>
+                <a href="tos.html"><input class="a" type="submit" value="Zarejestruj Się"></a>
+                <!-- <hr width="30%" align="center"> -->
+            </ul>
