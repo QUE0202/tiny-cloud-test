@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./style2.css">
     <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script src="js.js" defer></script>
-    <title>ChatBot</title>
+    <title>Komunikator</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -45,19 +45,6 @@
       .message {
         background-color: #333;
       }
-      h1 {
-      font-family: unset;
-      margin: 0;
-      text-decoration: none;
-      text-align: center;
-      flex: 1;
-      background-color: #222;
-      border-radius: 10px;
-      color: #ccc;
-      border: 1px solid black;
-      width: 30%;
-      margin-left: 625px;
-    }
     </style>
 </head>
 <body>
@@ -73,23 +60,20 @@
         </nav>
         <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
         <p></p>
-        <header>
-            <h1>ChatBot</h1>
-        </header>
+<header>
+  <h1>Komunikator</h1>
+</header>
 <main>
-    <div class="chat-container">
-        <div class="chat-message user-message">
-            <p>Hello, how can I help you?</p>
-        </div>
-        <div class="chat-message bot-message">
-            <p>Hi, I'm a chatbot. Ask me anything!</p>
-        </div>
-        <!-- You can add more chat messages here -->
-        <form>
-            <input type="text" id="user-input" placeholder="Type your message">
-            <button type="submit">Send</button>
+    <div class="chat-box">
+        <div class="message">Witaj! Zaczynajmy rozmowę.</div>
+        <div class="message">Cześć! Jak się masz?</div>
+        <div class="message">Hej! Wszystko w porządku, dzięki. A u Ciebie?</div>
+    
+        <form id="messageForm">
+          <input type="text" id="messageInput" placeholder="Wpisz wiadomość...">
+          <input type="submit" value="Wyślij">
         </form>
-    </div>
+      </div>
 </main>
 <footer>
     <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
@@ -113,14 +97,6 @@
       messageContainer.textContent = message;
       document.querySelector(".chat-box").appendChild(messageContainer);
     }
-
-    const menuButton = document.getElementById('menuButton');
-        const menu = document.getElementById('menu');
-
-        menuButton.addEventListener('click', () => {
-            menu.classList.toggle('open');
-            menuButton.classList.toggle('open');
-        });
   </script>
 </body>
 </html>
