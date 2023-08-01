@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Tłumacz</title>
+</head>
+<body>
+    <h1>Google Tłumacz</h1>
+
+    <!-- Formularz z rozwijaną listą języków -->
+    <form id="translationForm">
+        <label for="sourceLanguage">Wybierz język źródłowy:</label>
+        <select id="sourceLanguage">
+            <option value="en">Angielski</option>
+            <option value="pl">Polski</option>
+            <option value="de">Niemiecki</option>
+            <!-- Dodaj więcej opcji językowych, jeśli jest to potrzebne -->
+        </select>
+
+        <label for="targetLanguage">Wybierz język docelowy:</label>
+        <select id="targetLanguage">
+            <option value="pl">Polski</option>
+            <option value="en">Angielski</option>
+            <option value="de">Niemiecki</option>
+            <!-- Dodaj więcej opcji językowych, jeśli jest to potrzebne -->
+        </select>
+
+        <label for="textToTranslate">Tekst do przetłumaczenia:</label>
+        <textarea id="textToTranslate" rows="4" cols="50" placeholder="Wprowadź tekst do przetłumaczenia..."></textarea>
+
+        <button type="submit">Tłumacz</button>
+    </form>
+
+    <!-- Wynik tłumaczenia -->
+    <div id="translationResult"></div>
+
+    <script>
+        // Obsługa formularza i tłumaczenie za pomocą API Google Tłumacz
+        const translationForm = document.getElementById('translationForm');
+        const translationResult = document.getElementById('translationResult');
+
+        translationForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const sourceLanguage = document.getElementById('sourceLanguage').value;
+            const targetLanguage = document.getElementById('targetLanguage').value;
+            const textToTranslate = document.getElementById('textToTranslate').value;
+
+            // Wywołanie funkcji do tłumaczenia za pomocą API Google Tłumacz (wymaga klucza API)
+            translateText(sourceLanguage, targetLanguage, textToTranslate).then(result => {
+                translationResult.innerHTML = `<strong>Wynik tłumaczenia:</strong> ${result}`;
+            }).catch(error => {
+                translationResult.innerHTML = `<strong>Błąd tłumaczenia:</strong> ${error}`;
+            });
+        });
+
+        // Funkcja do tłumaczenia za pomocą API Google Tłumacz (zastąp 'YOUR_API_KEY' swoim kluczem API)
+        function translateText(sourceLanguage, targetLanguage, text) {
+            const apiKey = 'YOUR_API_KEY';
+            const apiUrl = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+
+            return fetch(apiUrl, {
+                method: 'POST',
+                body: JSON.stringify({
+                    q: text,
+                    source: sourceLanguage,
+                    target: targetLanguage,
+                    format: 'text'
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.data && data.data.translations && data.data.translations.length > 0) {
+                    return data.data.translations[0].translatedText;
+                } else {
+                    throw new Error('Brak wyników tłumaczenia.');
+                }
+            })
+            .catch(error => {
+                throw new Error('Wystąpił błąd podczas tłumaczenia.');
+            });
+        }
+    </script>
+</body>
+</html>

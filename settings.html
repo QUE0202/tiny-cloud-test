@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style1.css">
+    <title>Ustawienia Aplikacji Webowej</title>
+    <style>
+        /* Twoje istniejące style CSS tutaj */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ustawienia Aplikacji Webowej</h1>
+    </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona główna</a></li>
+                &#x7C;
+                <li><a href="#">Użytkownicy</a></li>
+                &#x7C;
+                <li><a href="Artykuły.html">Artykuły</a></li>
+                &#x7C;
+                <li><a href="dashboard.html">Dashboard</a></li>
+                &#x7C;
+                <li><a href="baza.sql">Baza Danych</a></li>
+                &#x7C;
+                <li><a href="#">Ustawienia</a></li>
+            </ul>
+        </nav>
+    <main>
+        <center>
+            <form id="settingsForm">
+                <!-- Ustawienie 1: Wybór języka -->
+                <div class="setting">
+                    <label for="language">Język aplikacji:</label>
+                    <select id="language" name="language">
+                        <option value="pl">Polski</option>
+                        <option value="en">English</option>
+                        <option value="de">Deutsch</option>
+                        <!-- Dodaj więcej opcji językowych, jeśli jest to potrzebne -->
+                    </select>
+                </div>
+        
+                <!-- Ustawienie 2: Włącz/Wyłącz tryb nocny -->
+                <!-- <div class="setting">
+                    <label for="nightMode">Tryb nocny:</label>
+                    <input type="checkbox" id="nightMode" name="nightMode">
+                </div> -->
+        
+                <!-- Ustawienie 3: Adres e-mail użytkownika -->
+                <div class="setting">
+                    <label for="email">Adres e-mail:</label>
+                    <input type="text" id="email" name="email" placeholder="Twój adres e-mail">
+                </div>
+        
+                <!-- Przycisk do zapisu ustawień -->
+                <button type="submit">Zapisz ustawienia</button>
+            </form>
+        </center>
+    </main>
+   <footer>
+        <p>&copy; 2023<a href="index.html">Moja Strona</a>Wszelkie prawa zastrzeżone.</p>
+   </footer>
+    <script>
+        // Obsługa zapisu ustawień po kliknięciu przycisku
+        const settingsForm = document.getElementById('settingsForm');
+
+        settingsForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Pobierz wartości ustawień
+            const language = document.getElementById('language').value;
+            const nightMode = document.getElementById('nightMode').checked;
+            const email = document.getElementById('email').value;
+
+            // Tutaj możesz wykonać logikę zapisu ustawień (np. używając local storage, cookie, lub przekazując do serwera)
+
+            // Wywołanie funkcji do zmiany języka strony
+            changeLanguage(language);
+            alert('Ustawienia zostały zapisane!');
+        });
+
+        // Funkcja do zmiany języka strony
+        function changeLanguage(language) {
+            // Tutaj wprowadź logikę zmiany tekstu i zawartości na stronie w zależności od wybranego języka
+            const pageTitle = document.querySelector('title');
+            const headerText = document.querySelector('h1');
+            const languageLabel = document.querySelector('label[for="language"]');
+            const nightModeLabel = document.querySelector('label[for="nightMode"]');
+            const emailLabel = document.querySelector('label[for="email"]');
+            const submitButton = document.querySelector('button[type="submit"]');
+
+            // Przykładowa zmiana tekstu dla różnych języków
+            if (language === 'pl') {
+                pageTitle.textContent = 'Ustawienia Aplikacji Webowej';
+                headerText.textContent = 'Ustawienia Aplikacji Webowej';
+                languageLabel.textContent = 'Język aplikacji:';
+                nightModeLabel.textContent = 'Tryb nocny:';
+                emailLabel.textContent = 'Adres e-mail:';
+                submitButton.textContent = 'Zapisz ustawienia';
+            } else if (language === 'en') {
+                pageTitle.textContent = 'Web Application Settings';
+                headerText.textContent = 'Web Application Settings';
+                languageLabel.textContent = 'Application language:';
+                nightModeLabel.textContent = 'Night mode:';
+                emailLabel.textContent = 'Email address:';
+                submitButton.textContent = 'Save settings';
+            } else if (language === 'de') {
+                pageTitle.textContent = 'Webanwendungseinstellungen';
+                headerText.textContent = 'Webanwendungseinstellungen';
+                languageLabel.textContent = 'Anwendungssprache:';
+                nightModeLabel.textContent = 'Nachtmodus:';
+                emailLabel.textContent = 'E-Mail-Adresse:';
+                submitButton.textContent = 'Einstellungen speichern';
+            }
+        }
+    </script>
+</body>
+</html>

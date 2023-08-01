@@ -363,3 +363,13 @@ h1 {
     }
   }
   
+  #settingsForm {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 5px solid #fff;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
