@@ -20,6 +20,7 @@
             margin-left: 600px;
         }
     </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <div class="wrapper">
@@ -28,6 +29,7 @@
             <li><a class="sg" href="index.html">Strona Główna</a></li>
             <li><a href="informacje.html">Informacje</a></li>
             <li><a href="aplikacje.html">Aplikacje</a></li>
+            <li><a href="maps.html">Mapy</a></li>
             <li id="dark-mode-toggle">Tryb jasny</li>
             <li><a href="login.info.html">Logowanie</a></li>
         </ul>
@@ -48,11 +50,24 @@
         <button type="submit">Zaloguj</button>
         <p id="loginMessage"></p>
     </form>
+    <div class="g-recaptcha" data-sitekey="TWOJ_SITE_KEY"></div>
 </main>
 <footer>
     <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
 </footer>
 <script>
+
+function onClick(e) {
+  e.preventDefault();
+  grecaptcha.enterprise.ready(async () => {
+    const token = await grecaptcha.enterprise.execute('6LcJueYnAAAAADxPf5_e4ss6qWPR6Un72kgOeIsG', {action: 'LOGIN'});
+    // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
+    // reCAPTCHA Enterprise to the end user's browser.
+    // This token must be validated by creating an assessment.
+    // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
+  });
+}
+
     const menuButton = document.getElementById('menuButton');
     const menu = document.getElementById('menu');
     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -103,13 +118,22 @@
 
     // Funkcja obsługująca logowanie
     function login() {
-        const form = document.getElementById('loginForm');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const loginMessage = document.getElementById('loginMessage');
+    const form = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginMessage = document.getElementById('loginMessage');
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Sprawdzenie reCAPTCHA
+        grecaptcha.ready(function() {
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            if (!recaptchaResponse) {
+                loginMessage.textContent = 'Proszę potwierdzić, że nie jesteś robotem.';
+                return;
+            }
 
             const username = usernameInput.value;
             const password = passwordInput.value;
@@ -132,7 +156,9 @@
             usernameInput.value = '';
             passwordInput.value = '';
         });
-    }
+    });
+}
+
 
     // Sprawdza, czy użytkownik jest administratorem
     function isAdmin(username) {

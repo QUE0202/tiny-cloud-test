@@ -54,6 +54,7 @@
             <li><a class="sg" href="index.html">Strona Główna</a></li>
             <li><a href="informacje.html">Informacje</a></li>
             <li><a href="aplikacje.html">Aplikacje</a></li>
+            <li><a href="maps.html">Mapy</a></li>
             <li id="dark-mode-toggle">Tryb jasny</li>
             <li><a href="login.info.html">Logowanie</a></li>
         </ul>
@@ -63,40 +64,77 @@
 <header>
   <h1>Komunikator</h1>
 </header>
-<main>
-    <div class="chat-box">
-        <div class="message">Witaj! Zaczynajmy rozmowę.</div>
-        <div class="message">Cześć! Jak się masz?</div>
-        <div class="message">Hej! Wszystko w porządku, dzięki. A u Ciebie?</div>
-    
-        <form id="messageForm">
-          <input type="text" id="messageInput" placeholder="Wpisz wiadomość...">
-          <input type="submit" value="Wyślij">
-        </form>
-      </div>
-</main>
-<footer>
-    <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
-</footer>
-  <script>
-    const messageForm = document.getElementById("messageForm");
-    const messageInput = document.getElementById("messageInput");
+<div id="chat" class="chat-box">
+  <form id="messageForm">
+      <label for="recipient">Wybierz odbiorcę:</label>
+      <select id="recipient">
+          <option value="user1">Użytkownik 1</option>
+          <option value="user2">Użytkownik 2</option>
+          <option value="user3">Użytkownik 3</option>
+      </select>
+      <input type="text" id="messageInput" placeholder="Wpisz wiadomość..." />
+      <button type="submit" id="msgsend">Wyślij</button>
+  </form>
+  <div id="messages"></div>
+  <div id="sentMessages"></div> <!-- Kontener na wysłane wiadomości -->
+</div>
 
-    messageForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const message = messageInput.value.trim();
-      if (message !== "") {
-        addMessage(message);
-        messageInput.value = "";
-      }
-    });
+<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>
 
-    function addMessage(message) {
-      const messageContainer = document.createElement("div");
-      messageContainer.classList.add("message");
-      messageContainer.textContent = message;
-      document.querySelector(".chat-box").appendChild(messageContainer);
-    }
+<script>
+  // Inicjalizacja Firebase (musisz utworzyć projekt Firebase i dodać konfigurację)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // ... (Inicjalizacja Firebase i pozostały kod) ...
+
+const messageForm = document.getElementById("messageForm");
+const messageInput = document.getElementById("messageInput");
+const sentMessagesDiv = document.getElementById("sentMessages");
+
+messageForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const message = messageInput.value.trim();
+  const recipient = document.getElementById("recipient").value;
+
+  if (message !== "") {
+    addMessage(message, recipient, true); // Dodaj wiadomość do kontenera
+    sendMessage(message, recipient); // Wyślij wiadomość do Firebase
+    messageInput.value = "";
+  }
+});
+
+function addMessage(message, recipient, sent) {
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("message");
+  if (sent) {
+    messageContainer.classList.add("sent");
+  }
+  messageContainer.textContent = `${message} (Do: ${recipient})`;
+
+  if (sent) {
+    sentMessagesDiv.appendChild(messageContainer);
+  } else {
+    document.getElementById("messages").appendChild(messageContainer);
+  }
+}
+
+function sendMessage(message, recipient) {
+  db.collection("messages").add({
+    text: message,
+    recipient: recipient,
+    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  });
+}
+
+// ... (Nasłuchiwanie na nowe wiadomości) ...
   </script>
 </body>
 </html>

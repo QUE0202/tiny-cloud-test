@@ -539,3 +539,20 @@ button#dark-mode-toggle {
 .google {
   border-radius: 5px;
 }
+
+iframe {
+  width: 1800px;
+  height: 750px; /* Wysokość, którą uznasz za odpowiednią */
+}
+
+#messageInput {
+  width: 300px;
+}
+
+#msgsend {
+  margin-left: 120px;
+}
+
+#recipient {
+  margin-left: -60px;
+}
