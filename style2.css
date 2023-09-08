@@ -541,8 +541,8 @@ button#dark-mode-toggle {
 }
 
 iframe {
-  width: 1800px;
-  height: 750px; /* Wysokość, którą uznasz za odpowiednią */
+  width: 1700px;
+  height: 700px; /* Wysokość, którą uznasz za odpowiednią */
 }
 
 #messageInput {
@@ -556,3 +556,30 @@ iframe {
 #recipient {
   margin-left: -60px;
 }
+
+.search-bar {
+  width: 250px;
+  text-align: center;
+}
+
+    .info {
+        padding: 20px;
+        font-size: 18px;
+        background-color: #222;
+        border: 2px solid #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin: 20px auto;
+        max-width: 600px;
+        color: #333;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s;
+    }
+
+    .info:hover {
+      background-color: #333;
+      border: 2px solid #222;
+      color: #fff;
+    }
+
