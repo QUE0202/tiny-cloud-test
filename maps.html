@@ -1,96 +1,85 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style2.css">
-    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="js.js" defer></script>
-    <title>Mapy</title>
-    <style>
-        h1 {
-    font-family: unset;
-    margin: 0;
-    text-decoration: none;
-    text-align: center;
-    flex: 1;
-    background-color: #222;
-    border-radius: 10px;
-    color: #ccc;
-    border: 1px solid black;
-    width: 30%;
-    margin-left: 625px;
-  }
-    </style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style_adm.css">
 </head>
 <body>
-    <div class="wrapper">
-        <nav class="menu" id="menu">
-            <ul>
-                <li><a class="sg" href="index.html">Strona Główna</a></li>
-                <li><a href="informacje.html">Informacje</a></li>
-                <li><a href="aplikacje.html">Aplikacje</a></li>
-                <li><a href="maps.html">Mapy</a></li>
-                <li id="dark-mode-toggle">Tryb jasny</li>
-                <li><a href="login.info.html">Logowanie</a></li>
-            </ul>
-        </nav>
-        <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
-        <p></p>
-        <header>
-            <div class="mp">
-                <h1>Mapy</h1>
-            </div>
-        </header>
-        <main>
-            <center>
-                    <div class="search-bar">
-                    <input type="text" id="locationSearch" placeholder="Wyszukaj lokalizację...">
-                    <button onclick="searchLocation()">Szukaj</button>
-                </div>              
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d74419.44572914919!2d18.74845617314454!3d54.34624203848624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2snl!4v1693379202111!5m2!1spl!2snl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </center>
-        </main>
-        <footer>
-            <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
-        </footer>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
     </div>
-    <script>
-        function searchLocation() {
-  const locationInput = document.getElementById('locationSearch').value;
-  const geocoder = new google.maps.Geocoder();
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="#">Age</a></li>
+        <li><a href="#">Gender</a></li>
+        <li><a href="#">Geo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  geocoder.geocode({ address: locationInput }, (results, status) => {
-    if (status === 'OK' && results[0]) {
-      const location = results[0].geometry.location;
-      map.setCenter(location);
-      new google.maps.Marker({ position: location, map: map });
-    } else {
-      alert('Nie udało się odnaleźć lokalizacji.');
-    }
-  });
-}
+<!-- Dodaj sekcję profilu -->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-text pull-left">
+      <p class="navbar-link">Użytkownik: @Root</p>
+    </div>
+    <div class="navbar-text pull-right">
+      <a href="login.info.html" class="navbar-link">Zaloguj się</a>
+    </div>
+  </div>
+</div>
 
-        const menuButton = document.getElementById('menuButton');
-        const menu = document.getElementById('menu');
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <hr>
+      <h2><a href="index.html">Multi-Task</a></h2>
+      <hr>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="informacje.html">Informacje</a></li>
+        <li><a href="aplikacje.html">Aplikacje</a></li>
+        <li><a href="maps.html">Mapy</a></li>
+        <li><a href="login.info.html">Logowanie</a></li>
+        <hr>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Mapy</h4>
+        <hr>
+      </div>
+      <main>
+        
+        <div class="row">
+            <div class="col-sm-4" style="width: 90%;">
+              <div class="well">
+                <h4>Mapa</h4>
+                <hr>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d74419.44572914919!2d18.74845617314454!3d54.34624203848624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spl!2snl!4v1693379202111!5m2!1spl!2snl" style="border:0; width:100%; height:600px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            </div>
+            </div>
 
-        menuButton.addEventListener('click', () => {
-            menu.classList.toggle('open');
-            menuButton.classList.toggle('open');
-        });
-    </script>
-    <script>
-        let map;
-      
-        function initMap() {
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 54.34624203848624, lng: 18.74845617314454 },
-            zoom: 12
-          });
-        }
-      </script>
-      
-      <script src="https://maps.googleapis.com/maps/api/js?key=TWOJ_KLUCZ_API&callback=initMap" async defer></script>
-      
+      </main>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
