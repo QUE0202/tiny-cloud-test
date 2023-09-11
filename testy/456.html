@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./style1.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <p></p>
+    <header>
+        <h1>Dashboard</h1>
+    </header>
+    <p></p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            &#x7C;
+            <li><a href="#">Użytkownicy</a></li>
+            &#x7C;
+            <li><a href="Artykuły.html">Artykuły</a></li>
+            &#x7C;
+            <li><a href="dashboard.html">Dashboard</a></li>
+            &#x7C;
+            <li><a href="baza.sql">Baza Danych</a></li>
+            &#x7C;
+            <li><a href="#">Ustawienia</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <center><h2>Dashboard</h2></center>
+        
+        <div class="dashboard">
+            <div class="dashboard-item">
+                <center><h3>Użytkownicy</h3>
+                <p id="userCount">Liczba użytkowników: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <canvas id="userChart"></canvas></center>
+            </div>
+            <div class="dashboard-item">
+                <center><h3>Artykuły</h3>
+                <p id="articleCount">Liczba artykułów: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <canvas id="articleChart"></canvas></center>
+            </div>
+            <div class="dashboard-item">
+                <center><h3>Statystyki</h3>
+                <p id="pageViews">Wyświetlenia strony: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <canvas id="pageViewsChart"></canvas></center>
+            </div>
+            <div class="dashboard-item">
+                <center><h3>Komunikaty</h3>
+                <p id="pageViews">Komunikaty: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <ul id="notifications"></ul></center>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="dashboard-item">
+                <center><h3>Użytkownicy</h3>
+                <p id="userCount">Liczba użytkowników: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <canvas id="userChart"></canvas></center>
+            </div>
+            <div class="dashboard-item">
+                <center><h3>Artykuły</h3>
+                <p id="articleCount">Liczba artykułów: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <canvas id="articleChart"></canvas></center>
+            </div>
+            <div class="dashboard-item">
+                <center><h3>Statystyki</h3>
+                <p id="pageViews">Wyświetlenia strony: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <canvas id="pageViewsChart"></canvas></center>
+            </div>
+            <div class="dashboard-item">
+                <center><h3>Komunikaty</h3>
+                <p id="pageViews">Komunikaty: <div class="lds-ring"><div></div><div></div><div></div><div></div></div></p>
+                <ul id="notifications"></ul></center>
+            </div>
+        </div>
+        
+    </div>
+    <footer>
+        <p>&copy; 2023<a href="index.html">Moja Strona</a>Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            menuButton.classList.toggle('open');
+        });
+
+        // Przykładowe dane dla dashboardu
+        const userData = {
+            userCount: 100,
+            articleCount: 50,
+            pageViews: 1000
+        };
+
+        // Aktualizowanie danych w dashboardzie
+        function updateDashboardData() {
+            document.getElementById('userCount').textContent = `Liczba użytkowników: ${userData.userCount}`;
+            document.getElementById('articleCount').textContent = `Liczba artykułów: ${userData.articleCount}`;
+            document.getElementById('pageViews').textContent = `Wyświetlenia strony: ${userData.pageViews}`;
+
+            // Wykres dla liczby użytkowników
+            new Chart(document.getElementById('userChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Aktywni', 'Nieaktywni'],
+                    datasets: [{
+                        data: [80, 20],
+                        backgroundColor: ['#36a2eb', '#ff6384'],
+                    }]
+                }
+            });
+
+            // Wykres dla liczby artykułów
+            new Chart(document.getElementById('articleChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Publikowane', 'Nieopublikowane'],
+                    datasets: [{
+                        data: [40, 10],
+                        backgroundColor: ['#ffcd56', '#ff6384'],
+                    }]
+                }
+            });
+
+            // Wykres dla wyświetleń strony
+            new Chart(document.getElementById('pageViewsChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Organiczne', 'Płatne'],
+                    datasets: [{
+                        data: [700, 300],
+                        backgroundColor: ['#4bc0c0', '#ff6384'],
+                    }]
+                }
+            });
+
+            // Komunikaty
+            const notifications = [
+                { message: 'Nowy użytkownik zarejestrowany' },
+                { message: 'Nowy artykuł opublikowany' },
+                { message: 'Uwaga! Duże obciążenie serwera' }
+            ];
+
+            const notificationsList = document.getElementById('notifications');
+            notificationsList.innerHTML = '';
+
+            notifications.forEach((notification) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = notification.message;
+                notificationsList.appendChild(listItem);
+            });
+        }
+
+        // Inicjalizacja danych w dashboardzie
+        updateDashboardData();
+    </script>
+</body>
+</html>
