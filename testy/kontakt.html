@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js.js" defer></script>
+    <title>Kontakt</title>
+    <style>
+        h1 {
+      font-family: unset;
+      margin: 0;
+      text-decoration: none;
+      text-align: center;
+      flex: 1;
+      background-color: #222;
+      border-radius: 10px;
+      color: #ccc;
+      border: 1px solid black;
+      width: 30%;
+      margin-left: 625px;
+    }
+      </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a class="sg" href="index.html">Strona Główna</a></li>
+                <li><a href="informacje.html">Informacje</a></li>
+                <li><a href="aplikacje.html">Aplikacje</a></li>
+                <li><a href="maps.html">Mapy</a></li>
+                <li id="dark-mode-toggle">Tryb jasny</li>
+                <li><a href="login.info.html">Logowanie</a></li>
+            </ul>
+        </nav>
+        <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
+        <p></p>
+        <header>
+            <h1 class="mp">Kontakt</h1>
+        </header>
+        <main>
+            <div id="dymek" style="width: 120px; height: 60px;">
+                <section class="contacts flex_column_container">
+                    <div class="contact_box">
+                        <i class="fab fa-discord"></i>
+                        <p><a href="https://discord.gg/BCYPcuUsZ2">Discord</a></p>
+                    </div>
+                </section>
+                <section class="contacts flex_column_container">
+                    <div class="contact_box">
+                        <i class="fab fa-instagram"></i>
+                        <p><a href="https://instagram.com/prod.kuba?igshid=MjEwN2lyYWYwYw==">Instagram</a></p>
+                    </div>
+                </section>
+            </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
+        </footer>
+    </div>
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const menu = document.getElementById('menu');
+
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            menuButton.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

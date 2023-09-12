@@ -1,45 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logowanie</title>
-    <link rel="stylesheet" href="./style2.css">
-    <style>
-        h1 {
-            font-family: unset;
-            margin: 0;
-            text-decoration: none;
-            text-align: center;
-            flex: 1;
-            background-color: #222;
-            border-radius: 10px;
-            color: #ccc;
-            border: 1px solid black;
-            width: 30%;
-            margin-left: 600px;
-        }
-    </style>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <title>Wyszukiwarka</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style_adm.css">
 </head>
 <body>
-<div class="wrapper">
-    <nav class="menu" id="menu">
-        <ul>
-            <li><a class="sg" href="index.html">Strona Główna</a></li>
-            <li><a href="informacje.html">Informacje</a></li>
-            <li><a href="aplikacje.html">Aplikacje</a></li>
-            <li><a href="maps.html">Mapy</a></li>
-            <li id="dark-mode-toggle">Tryb jasny</li>
-            <li><a href="login.info.html">Logowanie</a></li>
-        </ul>
-    </nav>
-    <div class="menu-button" id="menuButton"></div>
-    <p></p>
-<header>
-    <h1>Logowanie</h1>
-</header>
-<main>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="#">Age</a></li>
+        <li><a href="#">Gender</a></li>
+        <li><a href="#">Geo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Dodaj sekcję profilu -->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-text pull-left">
+      <p class="navbar-link">Użytkownik: @Root</p>
+    </div>
+    <div class="navbar-text pull-right">
+      <a href="login.info.html" class="navbar-link">Zaloguj się</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <hr>
+      <h2><a href="index.html">Multi-Task</a></h2>
+      <hr>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="informacje.html">Informacje</a></li>
+        <li><a href="aplikacje.html">Aplikacje</a></li>
+        <li><a href="maps.html">Mapy</a></li>
+        <li><a href="login.info.html">Logowanie</a></li>
+        <hr>
+      </ul><br>
+    </div>
+    <br>
+<div class="container">
+  <div class="well">
+    <h4>Logowanie</h4>
+    <hr>
     <form id="loginForm">
         <label for="username">Login:</label>
         <input type="text" id="username" required>
@@ -50,103 +74,39 @@
         <button type="submit">Zaloguj</button>
         <p id="loginMessage"></p>
     </form>
-    <div class="g-recaptcha" data-sitekey="TWOJ_SITE_KEY"></div>
-</main>
-<footer>
-    <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
-</footer>
+  </div>
+</div>
+
 <script>
+    // Dane kont administratora
+    const adminCredentials = {
+        username: 'j.troka_adm',
+        password: 'Agusia12!'
+    };
 
-function onClick(e) {
-  e.preventDefault();
-  grecaptcha.enterprise.ready(async () => {
-    const token = await grecaptcha.enterprise.execute('6LcJueYnAAAAADxPf5_e4ss6qWPR6Un72kgOeIsG', {action: 'LOGIN'});
-    // IMPORTANT: The 'token' that results from execute is an encrypted response sent by
-    // reCAPTCHA Enterprise to the end user's browser.
-    // This token must be validated by creating an assessment.
-    // See https://cloud.google.com/recaptcha-enterprise/docs/create-assessment
-  });
-}
-
-    const menuButton = document.getElementById('menuButton');
-    const menu = document.getElementById('menu');
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-
-    menuButton.addEventListener('click', () => {
-        menu.classList.toggle('open');
-        menuButton.classList.toggle('open');
-    });
-
-    // Obsługa trybu jasnego i ciemnego
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const currentMode = document.body.classList.contains('dark-mode') ? 'Ciemny' : 'Jasny';
-        darkModeToggle.textContent = `Tryb ${currentMode}`;
-    });
-
-    // Dane kont administratora i użytkownika
-    const adminCredentials = [
-        {
-            username: 'j.troka_adm',
-            password: 'Agusia12!'
-        }
-    ];
-
-    const userCredentials = [
-        {
-            username: 'Bartek',
-            password: 'User12!'
-        }
-    ];
-
-    // Sprawdzanie uwierzytelnienia
     function authenticate(username, password) {
-        for (const admin of adminCredentials) {
-            if (admin.username === username && admin.password === password) {
-                return true;
-            }
-        }
-
-        for (const user of userCredentials) {
-            if (user.username === username && user.password === password) {
-                return true;
-            }
-        }
-
-        return false;
+        return (adminCredentials.username === username && adminCredentials.password === password);
     }
 
-    // Funkcja obsługująca logowanie
     function login() {
-    const form = document.getElementById('loginForm');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const loginMessage = document.getElementById('loginMessage');
+        const form = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginMessage = document.getElementById('loginMessage');
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Sprawdzenie reCAPTCHA
-        grecaptcha.ready(function() {
-            const recaptchaResponse = grecaptcha.getResponse();
-
-            if (!recaptchaResponse) {
-                loginMessage.textContent = 'Proszę potwierdzić, że nie jesteś robotem.';
-                return;
-            }
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
 
             const username = usernameInput.value;
             const password = passwordInput.value;
 
             if (authenticate(username, password)) {
                 // Logowanie pomyślne
-                loginMessage.textContent = 'Zalogowano jako ' + (isAdmin(username) ? 'administrator!' : 'użytkownik!');
-                // Przekierowanie do dashboardu dla administratora
-                if (isAdmin(username)) {
-                    setTimeout(function () {
-                        window.location.href = './dashboard.html';
-                    }, 2000); // Przekierowanie po 2 sekundach
-                }
+                loginMessage.textContent = 'Zalogowano jako administrator!';
+                // Przekierowanie do dashboardu
+                setTimeout(function () {
+                    window.location.href = './dashboard.html';
+                }, 2000); // Przekierowanie po 2 sekundach
             } else {
                 // Logowanie nieudane
                 loginMessage.textContent = 'Nieprawidłowe dane logowania. Spróbuj ponownie.';
@@ -156,22 +116,11 @@ function onClick(e) {
             usernameInput.value = '';
             passwordInput.value = '';
         });
-    });
-}
-
-
-    // Sprawdza, czy użytkownik jest administratorem
-    function isAdmin(username) {
-        for (const admin of adminCredentials) {
-            if (admin.username === username) {
-                return true;
-            }
-        }
-        return false;
     }
 
     // Inicjalizacja logowania
     login();
 </script>
+
 </body>
 </html>

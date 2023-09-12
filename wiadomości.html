@@ -1,140 +1,105 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style2.css">
-    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="js.js" defer></script>
-    <title>Komunikator</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
-      .chat-box {
-        max-width: 400px;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 10px;
-      }
-      .message {
-        background-color: #f2f2f2;
-        padding: 8px;
-        border-radius: 5px;
-        margin-bottom: 5px;
-      }
-      input[type="text"] {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 8px 12px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-      .message {
-        background-color: #333;
-      }
-    </style>
+  <title>Komunikator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style_adm.css">
 </head>
 <body>
-    <div class="wrapper">
-        <nav class="menu" id="menu">
-          <ul>
-            <li><a class="sg" href="index.html">Strona Główna</a></li>
-            <li><a href="informacje.html">Informacje</a></li>
-            <li><a href="aplikacje.html">Aplikacje</a></li>
-            <li><a href="maps.html">Mapy</a></li>
-            <li id="dark-mode-toggle">Tryb jasny</li>
-            <li><a href="login.info.html">Logowanie</a></li>
-        </ul>
-        </nav>
-        <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
-        <p></p>
-<header>
-  <h1>Komunikator</h1>
-</header>
-<div id="chat" class="chat-box">
-  <form id="messageForm">
-      <label for="recipient">Wybierz odbiorcę:</label>
-      <select id="recipient">
-          <option value="user1">Użytkownik 1</option>
-          <option value="user2">Użytkownik 2</option>
-          <option value="user3">Użytkownik 3</option>
-      </select>
-      <input type="text" id="messageInput" placeholder="Wpisz wiadomość..." />
-      <button type="submit" id="msgsend">Wyślij</button>
-  </form>
-  <div id="messages"></div>
-  <div id="sentMessages"></div> <!-- Kontener na wysłane wiadomości -->
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="#">Age</a></li>
+        <li><a href="#">Gender</a></li>
+        <li><a href="#">Geo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Dodaj sekcję profilu -->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-text pull-left">
+      <p class="navbar-link">Użytkownik: @Root</p>
+    </div>
+    <div class="navbar-text pull-right">
+      <a href="login.info.html" class="navbar-link">Zaloguj się</a>
+    </div>
+  </div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <hr>
+      <h2><a href="index.html">Multi-Task</a></h2>
+      <hr>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="informacje.html">Informacje</a></li>
+        <li><a href="aplikacje.html">Aplikacje</a></li>
+        <li><a href="maps.html">Mapy</a></li>
+        <li><a href="login.info.html">Logowanie</a></li>
+        <hr>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Komunikator</h4>
+        <hr>
+      </div>
+      <main>
+        <div class="row">
+            
+            <div class="col-sm-4">
+              <div class="well">
+                <h4>Chat</h4>
+                <hr>
+                <div id="chat" class="chat-box">
+                    <form id="messageForm">
+                        <label for="recipient">Wybierz odbiorcę:</label>
+                        <select id="recipient">
+                            <option value="user1">Użytkownik 1</option>
+                            <option value="user2">Użytkownik 2</option>
+                            <option value="user3">Użytkownik 3</option>
+                        </select>
+                        <input type="text" id="messageInput" placeholder="Wpisz wiadomość..." />
+                        <button type="submit" id="msgsend">Wyślij</button>
+                    </form>
+                    <div id="messages"></div>
+                    <div id="sentMessages"></div> <!-- Kontener na wysłane wiadomości -->
+                  </div>
+                  
+                  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+                  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js"></script>
+                  
+              </div>
+            </div>
 
-<script>
-  // Inicjalizacja Firebase (musisz utworzyć projekt Firebase i dodać konfigurację)
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
+            
+          </div>
+      </main>
+    </div>
+  </div>
+</div>
 
-  // ... (Inicjalizacja Firebase i pozostały kod) ...
-
-const messageForm = document.getElementById("messageForm");
-const messageInput = document.getElementById("messageInput");
-const sentMessagesDiv = document.getElementById("sentMessages");
-
-messageForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const message = messageInput.value.trim();
-  const recipient = document.getElementById("recipient").value;
-
-  if (message !== "") {
-    addMessage(message, recipient, true); // Dodaj wiadomość do kontenera
-    sendMessage(message, recipient); // Wyślij wiadomość do Firebase
-    messageInput.value = "";
-  }
-});
-
-function addMessage(message, recipient, sent) {
-  const messageContainer = document.createElement("div");
-  messageContainer.classList.add("message");
-  if (sent) {
-    messageContainer.classList.add("sent");
-  }
-  messageContainer.textContent = `${message} (Do: ${recipient})`;
-
-  if (sent) {
-    sentMessagesDiv.appendChild(messageContainer);
-  } else {
-    document.getElementById("messages").appendChild(messageContainer);
-  }
-}
-
-function sendMessage(message, recipient) {
-  db.collection("messages").add({
-    text: message,
-    recipient: recipient,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  });
-}
-
-// ... (Nasłuchiwanie na nowe wiadomości) ...
-  </script>
 </body>
 </html>

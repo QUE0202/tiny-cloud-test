@@ -30,3 +30,30 @@
   100% { transform: rotate(360deg); }
 }
 
+.add-task-form {
+    display: flex;
+    align-items: center;
+}
+
+.add-task-input {
+    flex: 1;
+    margin-right: 5px; /* Dodaj odstęp między polem tekstowym a przyciskiem */
+}
+
+label {
+    display: block; /* Każdy label ma być wyświetlany w nowym wierszu */
+  }
+
+  .tostxt label {
+    display: block;
+  }
+  
+  .tostxt {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .tostxt a {
+    color: #337ab7;
+  }

@@ -1,79 +1,110 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style2.css">
-    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src="js.js" defer></script>
-    <title>Rejestracja</title>
-    <style>
-      h1 {
-    font-family: unset;
-    margin: 0;
-    text-decoration: none;
-    text-align: center;
-    flex: 1;
-    background-color: #222;
-    border-radius: 10px;
-    color: #ccc;
-    border: 1px solid black;
-    width: 30%;
-    margin-left: 625px;
-  }
-    </style>
+  <title>Rejestracja</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./style_adm.css">
 </head>
 <body>
-  <div class="wrapper">
-    <nav class="menu" id="menu">
-      <ul>
-        <li><a class="sg" href="index.html">Strona Główna</a></li>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="#">Age</a></li>
+        <li><a href="#">Gender</a></li>
+        <li><a href="#">Geo</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Dodaj sekcję profilu -->
+<div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-text pull-left">
+      <p class="navbar-link">Użytkownik: @Root</p>
+    </div>
+    <div class="navbar-text pull-right">
+      <a href="login.info.html" class="navbar-link">Zaloguj się</a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <hr>
+      <h2><a href="index.html">Multi-Task</a></h2>
+      <hr>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="index.html">Strona Główna</a></li>
         <li><a href="informacje.html">Informacje</a></li>
         <li><a href="aplikacje.html">Aplikacje</a></li>
         <li><a href="maps.html">Mapy</a></li>
-        <li id="dark-mode-toggle">Tryb jasny</li>
         <li><a href="login.info.html">Logowanie</a></li>
-    </ul>
-    </nav>
-    <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
-    <p></p>
-        <header>
-          <h1>Rejestracja</h1>
-        </header>
-        <main>
-          <form action="action_page.php">
-            <div class="container">
-              <center><p>Proszę wypełnić ten formularz, aby utworzyć konto.</p></center>
-              <hr>
-              <center><label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Wpisz adres email" name="email" id="email" required></center>
-            
-                <center><label for="psw"><b>Hasło</b></label>
-                <input type="password" placeholder="Wpisz hasło" name="psw" id="psw" required></center>
-            
-                <center><label for="psw-repeat"><b>Powtórz hasło</b></label>
-                <input type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required></center>
-                <hr>
-                <center><div class="tostxt">
-                  <a href="./tos.html">Tworząc konto, akceptujesz nasze Warunki korzystania i Politykę prywatności.</a>
-                </div></center>
-                  <center><a href="./password-remember.html"><input type="submit" class="registerbtn" value="Zarejestruj"></a></center>
-                  <center><a href="./login.html"><input type="submit" value="Zaloguj Się"></a></center>
-              </div>
-            </form>
-          </main>
-          <footer>
-            <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
-        </footer>
+        <hr>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Rejestracja</h4>
+        <hr>
       </div>
-      <script>
-          const menuButton = document.getElementById('menuButton');
-          const menu = document.getElementById('menu');
-      
-          menuButton.addEventListener('click', () => {
-              menu.classList.toggle('open');
-              menuButton.classList.toggle('open'); // Dodane
-          });
-      </script>
-      </body>
-      </html>
+      <main>
+        <div class="row">
+            
+            <div class="col-sm-4">
+              <div class="well">
+                <h4>Rejestracja</h4>
+                <hr>
+                <form action="action_page.php">
+                    <div class="container">
+                      <p>Proszę wypełnić ten formularz, aby utworzyć konto.</p>
+                      <hr>
+                      <label for="email"><b>Email</b></label>
+                      <input type="text" placeholder="Wpisz adres email" name="email" id="email" required>
+                  
+                      <label for="psw"><b>Hasło</b></label>
+                      <input type="password" placeholder="Wpisz hasło" name="psw" id="psw" required>
+                  
+                      <label for="psw-repeat"><b>Powtórz hasło</b></label>
+                      <input type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required>
+                  
+                      <div class="tostxt">
+                        <input type="checkbox" required>
+                        <span>Tworząc konto, akceptujesz nasze <a href="./tos.html">Warunki korzystania</a> i <a href="./privacy-policy.html">Politykę prywatności</a>.</span>
+                      </div>
+                  
+                      <hr>
+                  
+                      <a href="./tos.html"><input type="submit" class="registerbtn" value="Zarejestruj"></a>
+                      <a href="./login.html"><input type="submit" value="Zaloguj Się"></a>
+                    </div>
+                  </form>
+              </div>
+            </div>
+
+          </div>
+      </main>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

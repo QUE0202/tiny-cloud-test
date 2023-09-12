@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <script src="js.js" defer></script>
+    <title>ToDo Editor</title>
+    <style>
+        h1 {
+    font-family: unset;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    background-color: #222;
+    border-radius: 10px;
+    color: #ccc;
+    border: 1px solid black;
+    width: 30%;
+  }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a class="sg" href="index.html">Strona Główna</a></li>
+                <li><a href="informacje.html">Informacje</a></li>
+                <li><a href="aplikacje.html">Aplikacje</a></li>
+                <li><a href="maps.html">Mapy</a></li>
+                <li id="dark-mode-toggle">Tryb jasny</li>
+                <li><a href="login.info.html">Logowanie</a></li>
+            </ul>
+        </nav>
+        <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
+        <p></p>
+    <header>
+        <center><h1>To-Do Editor</h1></center>
+    </header>
+    <main>
+        <div>
+            <form class="add-task-form">
+                <input type="text" class="add-task-input" placeholder="Dodaj nowe zadanie">
+                <center>
+                    <div class="">
+                        <input class="add-task-button" type="submit" value="Dodaj">
+                    </div>
+                </center>
+            </form>
+            <div class="saved">
+                <ul id="task-list"><h2>Lista Zadań:</h2>
+                    <!-- Lista zadań będzie tutaj -->
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+
+        
+
+        const addTaskForm = document.querySelector('.add-task-form');
+        const addTaskInput = document.querySelector('.add-task-input');
+        const taskList = document.getElementById('task-list');
+
+        addTaskForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const taskText = addTaskInput.value;
+            if (taskText.trim() !== '') {
+                addTask(taskText);
+                addTaskInput.value = '';
+            }
+        });
+
+        function addTask(taskText) {
+            const li = document.createElement('li');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'task-checkbox';
+
+            const taskTextElement = document.createElement('span');
+            taskTextElement.className = 'task-text';
+            taskTextElement.textContent = taskText;
+
+            const deleteButton = document.createElement('input');
+            deleteButton.type = 'submit';
+            deleteButton.value = 'Usuń';
+            deleteButton.className = 'delete-button';
+
+            li.appendChild(checkbox);
+            li.appendChild(taskTextElement);
+            li.appendChild(deleteButton);
+            taskList.appendChild(li);
+
+            deleteButton.addEventListener('click', function() {
+                li.remove();
+            });
+        }
+    </script>
+</body>
+</html>

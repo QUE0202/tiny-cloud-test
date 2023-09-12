@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style2.css">
+    <script src="https://cdn.tiny.cloud/1/pddiferrl3cslrwfd4bq5x5z3if2hk7aq6vu02ghfj5y3u1u/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="js.js" defer></script>
+    <title>Rejestracja</title>
+    <style>
+      h1 {
+    font-family: unset;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+    background-color: #222;
+    border-radius: 10px;
+    color: #ccc;
+    border: 1px solid black;
+    width: 30%;
+    margin-left: 625px;
+  }
+    </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="menu" id="menu">
+      <ul>
+        <li><a class="sg" href="index.html">Strona Główna</a></li>
+        <li><a href="informacje.html">Informacje</a></li>
+        <li><a href="aplikacje.html">Aplikacje</a></li>
+        <li><a href="maps.html">Mapy</a></li>
+        <li id="dark-mode-toggle">Tryb jasny</li>
+        <li><a href="login.info.html">Logowanie</a></li>
+    </ul>
+    </nav>
+    <!-- <div class="menu-button" id="menuButton">&#9776;</div> -->
+    <p></p>
+        <header>
+          <h1>Rejestracja</h1>
+        </header>
+        <main>
+          <form action="action_page.php">
+            <div class="container">
+              <center><p>Proszę wypełnić ten formularz, aby utworzyć konto.</p></center>
+              <hr>
+              <center><label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Wpisz adres email" name="email" id="email" required></center>
+            
+                <center><label for="psw"><b>Hasło</b></label>
+                <input type="password" placeholder="Wpisz hasło" name="psw" id="psw" required></center>
+            
+                <center><label for="psw-repeat"><b>Powtórz hasło</b></label>
+                <input type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required></center>
+                <hr>
+                <center><div class="tostxt">
+                  <a href="./tos.html">Tworząc konto, akceptujesz nasze Warunki korzystania i Politykę prywatności.</a>
+                </div></center>
+                  <center><a href="./password-remember.html"><input type="submit" class="registerbtn" value="Zarejestruj"></a></center>
+                  <center><a href="./login.html"><input type="submit" value="Zaloguj Się"></a></center>
+              </div>
+            </form>
+          </main>
+          <footer>
+            <p>&copy; 2023 <a href="index.html">Moja Strona</a>. Wszelkie prawa zastrzeżone.</p>
+        </footer>
+      </div>
+      <script>
+          const menuButton = document.getElementById('menuButton');
+          const menu = document.getElementById('menu');
+      
+          menuButton.addEventListener('click', () => {
+              menu.classList.toggle('open');
+              menuButton.classList.toggle('open'); // Dodane
+          });
+      </script>
+      </body>
+      </html>
