@@ -10,132 +10,160 @@
   <link rel="stylesheet" href="./style_adm.css">
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-inverse visible-xs">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="./dashboard.html">Dashboard</a></li>
+                <li><a href="#">Age</a></li>
+                <li><a href="#">Gender</a></li>
+                <li><a href="#">Geo</a></li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Dodaj sekcję profilu -->
+        <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+            <p class="navbar-link">Użytkownik: @Root</p>
+            </div>
+            <div class="navbar-text pull-right">
+            <a href="./login.info.html" class="navbar-link">Zaloguj się</a>
+            </div>
+        </div>
+        </div>
 
-<nav class="navbar navbar-inverse visible-xs">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="./dashboard.html">Dashboard</a></li>
-        <li><a href="#">Age</a></li>
-        <li><a href="#">Gender</a></li>
-        <li><a href="#">Geo</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+        <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav hidden-xs">
+            <hr>
+            <h2><a href="dashboard.html">Dashboard</a></h2>
+            <hr>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="index.html">Strona Główna</a></li>
+                <li class="active"><a href="#section1">Dashboard</a></li>
+                <li><a href="baza.sql">Baza Danych</a></li>
+                <li><a href="#section2">Wiek</a></li>
+                <li><a href="#section3">Płeć</a></li>
+                <li><a href="./location.html">Localizacja</a></li>
+                <hr>
+            </ul><br>
+            </div>
+            <br>
+            
 
-<!-- Dodaj sekcję profilu -->
-<div class="navbar navbar-inverse navbar-fixed-bottom">
-  <div class="container">
-    <div class="navbar-text pull-left">
-      <p class="navbar-link">Użytkownik: @Root</p>
-    </div>
-    <div class="navbar-text pull-right">
-      <a href="./login.info.html" class="navbar-link">Zaloguj się</a>
-    </div>
-  </div>
-</div>
+            <div class="col-sm-9">
+            <div class="well">
+                <h4>Informacje ogólne</h4>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                <div class="well">
+                    <h4>Użytkownicy</h4>
+                    <hr>
+                    <p><div class="loader"></div></p> 
+                </div>
+                </div>
+                <div class="col-sm-3">
+                <div class="well">
+                    <h4>Strony</h4>
+                    <hr>
+                    <p><div class="loader"></div></p> 
+                </div>
+                </div>
+                <div class="col-sm-3">
+                <div class="well">
+                    <h4>Sesje</h4>
+                    <hr>
+                    <p><div class="loader"></div></p> 
+                </div>
+                </div>
+                <div class="col-sm-3">
+                <div class="well">
+                    <h4>Skoki</h4>
+                    <hr>
+                    <p><div class="loader"></div></p> 
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="well">
+                    <h4>Powiadomienia i Alerty</h4>
+                    <hr>
+                    <div class="alert alert-danger">
+                        <strong>Krytyczne!</strong> Treść powiadomienia.
+                    </div>
+                    <div class="alert alert-warning">
+                        <strong>Ostrzeżenie!</strong> Twój stan konta jest niski.
+                    </div>
+                    <div class="alert alert-info">
+                        <strong>Informacja:</strong> Zaktualizowano dane.
+                    </div>
+                    <!-- Dodaj więcej powiadomień w podobny sposób -->
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                    <h4>Kontrolki do Interakcji</h4>
+                    <hr>
+                    <center><button class="btn btn-primary">Dodaj nowy wpis</button>
+                    <button class="btn btn-success">Przejdź do innej sekcji</button></center>
+                    <!-- Dodaj więcej przycisków do interakcji w podobny sposób -->
+                    <hr>
+                    <h4>Filtry i sortowanie danych</h4>
+                    <select class="form-control">
+                        <option>Wybierz kategorię</option>
+                        <option>Kategoria 1</option>
+                        <option>Kategoria 2</option>
+                    </select>
+                    <!-- Dodaj więcej kontrolek filtrów/sortowania w podobny sposób -->
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="well">
+                    <h4>Linki Szybkiego Dostępu</h4>
+                    <hr>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="./todo.html">test (To-Do)</a></li>
+                        <li><a href="./ghjkl.html">test 1</a></li>
+                        <li><a href="./dsfghj.html">test 2</a></li>
+                        <!-- Dodaj więcej szybkich linków w podobny sposób -->
+                    </ul>
+                    </div>
+                </div>
 
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-3 sidenav hidden-xs">
-      <hr>
-      <h2><a href="dashboard.html">Dashboard</a></h2>
-      <hr>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="index.html">Strona Główna</a></li>
-        <li class="active"><a href="#section1">Dashboard</a></li>
-        <li><a href="baza.sql">Baza Danych</a></li>
-        <li><a href="#section2">Wiek</a></li>
-        <li><a href="#section3">Płeć</a></li>
-        <li><a href="#section3">Localizacja</a></li>
-        <hr>
-      </ul><br>
-    </div>
-    <br>
-    
-    <div class="col-sm-9">
-      <div class="well">
-        <h4>Informacje ogólne</h4>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Użytkownicy</h4>
-            <hr>
-            <p><div class="loader"></div></p> 
-          </div>
+            <!-- <div class="row">
+                <div class="col-sm-8">
+                <div class="well">
+                    <p>Text</p> 
+                </div>
+                </div>
+                <div class="col-sm-4">
+                <div class="well">
+                    <p>Text</p> 
+                </div>
+                </div>
+            </div> -->
+            </div>
         </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Strony</h4>
-            <hr>
-            <p><div class="loader"></div></p> 
-          </div>
         </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Sesje</h4>
-            <hr>
-            <p><div class="loader"></div></p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Skoki</h4>
-            <hr>
-            <p><div class="loader"></div></p> 
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="well">
-            <h4>Powiadomienia i Alerty</h4>
-            <hr>
-            <p>Ważne powiadomienia lub alerty dla użytkownika (np. ostrzeżenia o niskim stanie konta, itp.</p>  
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <h4>Kontrolki do Interakcji</h4>
-            <hr>
-            <p>Przyciski do wykonywania akcji (np. dodawanie nowych wpisów, przejścia do innych sekcji, itp.)</p> 
-            <p>Filtry i sortowanie danych</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <h4>Linki Szybkiego Dostępu</h4>
-            <hr>
-            <p>Szybkie odnośniki do innych ważnych części aplikacji</p> 
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="well">
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </main>
+    <footer>
 
+    </footer>
 </body>
 </html>
