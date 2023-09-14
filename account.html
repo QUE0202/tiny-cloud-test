@@ -75,8 +75,18 @@
                 <div class="well">
                     <h4>Dane</h4>
                     <hr>
-                    <p>E-Mail: jakub1016@gmail.com</p>
-                    <p>Login: @Root</p>
+                    <p>
+                        Nick: @Root
+                        <button onclick="copyNickToClipboard()" class="btn btn-link">
+                            <span class="glyphicon glyphicon-copy"></span>&#128466;	
+                        </button>
+                    </p>
+                    <p>
+                        E-Mail: jakub1016@gmail.com
+                        <button onclick="copyEmailToClipboard()" class="btn btn-link">
+                            <span class="glyphicon glyphicon-copy"></span>&#128466;	
+                        </button>
+                    </p>
                     <p>Hasło: ********</p>
                     <p>Numer Telefonu: ***-***-***</p>
                     <!-- <p><div class="loader"></div></p>  -->
@@ -108,14 +118,20 @@
                 </div>
                 </div>
                 <div class="col-sm-3">
-                <div class="well">
-                    <h4>Ustawienia</h4>
-                    <hr>
-                    
-                    <!-- <p><div class="loader"></div></p>  -->
+                    <div class="well">
+                        <h4>Ustawienia konta</h4>
+                        <hr>
+                        <p>Zmień preferencje konta:</p>
+                        <label for="email">Nowy e-mail:</label>
+                        <input type="text" id="email" name="email"><br><br>
+                        <label for="password">Nowe hasło:</label>
+                        <input type="password" id="password" name="password"><br><br>
+                        <label for="phoneNumber">Nowy numer telefonu:</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber"><br><br>
+                        <button onclick="saveAccountSettings()" class="btn btn-primary">Zapisz ustawienia</button>
+                    </div>
                 </div>
-                </div>
-                <div class="col-sm-3">
+                <!-- <div class="col-sm-3">
                 <div class="well">
                     <h4>Zmiana danych</h4>
                     <hr>
@@ -124,8 +140,8 @@
                     <p>Zmień Login</p>
                     <p>Zmień Numer Telefonu</p>
                     <!-- <p><div class="loader"></div></p>  -->
-                </div>
-                </div>
+                <!-- </div>
+                </div> -->
             </div>
             
         </div>
@@ -134,6 +150,38 @@
     <footer>
 
     </footer>
+    <script>
+        function copyNickToClipboard() {
+            var nick = "@Root";
+            var input = document.createElement('input');
+            input.setAttribute('value', nick);
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert("Nick został skopiowany do schowka!");
+        }
 
+        function copyEmailToClipboard() {
+            var email = "jakub1016@gmail.com";
+            var input = document.createElement('input');
+            input.setAttribute('value', email);
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert("E-Mail został skopiowany do schowka!");
+        }
+
+        function saveAccountSettings() {
+            var newEmail = document.getElementById('email').value;
+            var newPassword = document.getElementById('password').value;
+            var newPhoneNumber = document.getElementById('phoneNumber').value;
+
+            // Tutaj dodaj kod do zapisywania ustawień, na przykład wysyłając je na serwer
+
+            alert("Ustawienia konta zostały zapisane!");
+        }
+    </script>
 </body>
 </html>
